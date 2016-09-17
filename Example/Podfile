@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PLPinViewController_Example' do
+  pod 'PLPinViewController', :path => '../'
+
+  target 'PLPinViewController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
