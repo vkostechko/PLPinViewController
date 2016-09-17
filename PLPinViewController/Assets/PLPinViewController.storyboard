@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Pin View Controller-->
+        <scene sceneID="JrT-fn-o9p">
+            <objects>
+                <navigationController storyboardIdentifier="PLPinViewController" automaticallyAdjustsScrollViewInsets="NO" id="3ZH-eu-dvt" customClass="PLPinViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="98i-Vz-pRg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FTN-XV-rHC" kind="relationship" relationship="rootViewController" id="DdG-ju-8Qc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nfY-B8-FiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="-604"/>
+        </scene>
+        <!--Enter Pin View Controller-->
+        <scene sceneID="aWx-P9-RB3">
+            <objects>
+                <viewController storyboardIdentifier="PLEnterPinViewController" id="FTN-XV-rHC" customClass="PLEnterPinViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nNr-Xt-LjK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rg5-Id-R9I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZCR-iH-YJy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2MZ-8W-Uqj">
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="secret" translatesAutoresizingMaskIntoConstraints="NO" id="Q9H-fs-AgY">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="133" id="ZfQ-un-CAE" customClass="PLVerticalScaleConstraint"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME BACK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WN-Lg-XrT" customClass="YPAttributedLabel">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="TKq-Us-Iz5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                        <color key="textColor" red="0.3411764706" green="0.56470588239999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                <real key="value" value="1.3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontFamily" value="Montserrat-Regular"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wq-hd-q8B">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your pin code to log in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9d-um-dfq" customClass="YPAttributedLabel">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="272" id="IkR-uR-sSk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" red="0.51372549020000002" green="0.53333333329999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="c9d-um-dfq" firstAttribute="centerX" secondItem="0Wq-hd-q8B" secondAttribute="centerX" id="LoL-mh-2bi"/>
+                                            <constraint firstItem="c9d-um-dfq" firstAttribute="centerY" secondItem="0Wq-hd-q8B" secondAttribute="centerY" id="bwc-2D-MpP"/>
+                                            <constraint firstAttribute="height" constant="40" id="jXE-J6-WjW"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAg-vO-aPr">
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em4-62-nHK" customClass="YPFormPinField">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="auR-0A-dun"/>
+                                                    <constraint firstAttribute="width" constant="155" id="dEx-NU-Ji8"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="1aA-eo-i1Q"/>
+                                            <constraint firstItem="Em4-62-nHK" firstAttribute="centerY" secondItem="NAg-vO-aPr" secondAttribute="centerY" id="82f-Jl-u7l"/>
+                                            <constraint firstItem="Em4-62-nHK" firstAttribute="centerX" secondItem="NAg-vO-aPr" secondAttribute="centerX" id="TfM-Yd-ceq"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1aA-eo-i1Q"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-U9-ldE">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgotten pin?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTc-bc-qzp">
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.77647058820000003" green="0.79215686269999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rn-O0-eZW">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="C3H-vI-YOM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <state key="normal" title="Log out"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1M-Uf-Uik">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVALID PIN, TRY AGAIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOh-kk-tW2">
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="NOh-kk-tW2" firstAttribute="centerY" secondItem="y1M-Uf-Uik" secondAttribute="centerY" id="YeF-jZ-DG7"/>
+                                    <constraint firstItem="NOh-kk-tW2" firstAttribute="centerX" secondItem="y1M-Uf-Uik" secondAttribute="centerX" id="fJe-dF-pRF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ghw-U9-ldE" firstAttribute="centerX" secondItem="ZCR-iH-YJy" secondAttribute="centerX" id="1Vi-27-DX1"/>
+                            <constraint firstItem="Rg5-Id-R9I" firstAttribute="top" secondItem="ghw-U9-ldE" secondAttribute="bottom" constant="228" id="5at-HD-D4u"/>
+                            <constraint firstItem="2MZ-8W-Uqj" firstAttribute="leading" secondItem="ZCR-iH-YJy" secondAttribute="leading" id="7aJ-1c-u5K"/>
+                            <constraint firstItem="y1M-Uf-Uik" firstAttribute="height" secondItem="ghw-U9-ldE" secondAttribute="height" id="U3Q-qG-vpY"/>
+                            <constraint firstItem="y1M-Uf-Uik" firstAttribute="width" secondItem="ZCR-iH-YJy" secondAttribute="width" id="Ws8-be-hg4"/>
+                            <constraint firstItem="y1M-Uf-Uik" firstAttribute="centerX" secondItem="ghw-U9-ldE" secondAttribute="centerX" id="bMZ-gC-7OT"/>
+                            <constraint firstAttribute="trailing" secondItem="2MZ-8W-Uqj" secondAttribute="trailing" id="enf-Dr-auy"/>
+                            <constraint firstItem="ghw-U9-ldE" firstAttribute="top" secondItem="2MZ-8W-Uqj" secondAttribute="bottom" constant="10" id="ni3-cH-aoN"/>
+                            <constraint firstItem="y1M-Uf-Uik" firstAttribute="centerY" secondItem="ghw-U9-ldE" secondAttribute="centerY" id="qzE-qh-L0g"/>
+                            <constraint firstItem="2MZ-8W-Uqj" firstAttribute="top" secondItem="nNr-Xt-LjK" secondAttribute="bottom" constant="60" id="ys5-6c-qYF" customClass="PLMultiLayoutConstraint">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constantXC">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constantXXC">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="i2r-UG-7b5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WQa-9V-7L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="-604"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="secret" width="177" height="133"/>
+    </resources>
+</document>

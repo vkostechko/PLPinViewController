@@ -1,0 +1,29 @@
+PODS:
+  - Expecta (1.0.5)
+  - OCMock (3.3.1)
+  - PLForm (0.1.6):
+    - PureLayout
+  - PLPinViewController (0.1.0):
+    - PLForm
+    - PureLayout
+  - PureLayout (3.0.2)
+
+DEPENDENCIES:
+  - Expecta
+  - OCMock
+  - PLPinViewController (from `../`)
+
+EXTERNAL SOURCES:
+  PLPinViewController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
+  PLForm: ef98e25875079ff22eedf51b16e0f0184f8c7942
+  PLPinViewController: 8ac87cd93e6a1b22c5c6896cf4ebc5741c07e8ca
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+
+PODFILE CHECKSUM: d2d9f65c303cc48f767a5e92078e0cdb22223c98
+
+COCOAPODS: 1.0.1
