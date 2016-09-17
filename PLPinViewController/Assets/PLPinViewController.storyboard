@@ -13,7 +13,7 @@
         <!--Pin View Controller-->
         <scene sceneID="JrT-fn-o9p">
             <objects>
-                <navigationController storyboardIdentifier="PLPinViewController" automaticallyAdjustsScrollViewInsets="NO" id="3ZH-eu-dvt" customClass="PLPinViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PLPinViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3ZH-eu-dvt" customClass="PLPinViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="98i-Vz-pRg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -37,7 +37,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Rg5-Id-R9I"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZCR-iH-YJy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2MZ-8W-Uqj">
@@ -66,7 +66,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wq-hd-q8B">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your pin code to log in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9d-um-dfq" customClass="YPAttributedLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your pin code to log in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9d-um-dfq">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="272" id="IkR-uR-sSk"/>
                                                 </constraints>
@@ -75,7 +75,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="c9d-um-dfq" firstAttribute="centerX" secondItem="0Wq-hd-q8B" secondAttribute="centerX" id="LoL-mh-2bi"/>
                                             <constraint firstItem="c9d-um-dfq" firstAttribute="centerY" secondItem="0Wq-hd-q8B" secondAttribute="centerY" id="bwc-2D-MpP"/>
@@ -84,15 +84,15 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAg-vO-aPr">
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em4-62-nHK" customClass="YPFormPinField">
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em4-62-nHK" customClass="PLFormPinField">
+                                                <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="auR-0A-dun"/>
                                                     <constraint firstAttribute="width" constant="155" id="dEx-NU-Ji8"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1aA-eo-i1Q"/>
                                             <constraint firstItem="Em4-62-nHK" firstAttribute="centerY" secondItem="NAg-vO-aPr" secondAttribute="centerY" id="82f-Jl-u7l"/>
@@ -105,6 +105,9 @@
                                         </variation>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="tiS-xr-dCz"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-U9-ldE">
                                 <subviews>
@@ -137,16 +140,15 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ghw-U9-ldE" firstAttribute="centerX" secondItem="ZCR-iH-YJy" secondAttribute="centerX" id="1Vi-27-DX1"/>
-                            <constraint firstItem="Rg5-Id-R9I" firstAttribute="top" secondItem="ghw-U9-ldE" secondAttribute="bottom" constant="228" id="5at-HD-D4u"/>
                             <constraint firstItem="2MZ-8W-Uqj" firstAttribute="leading" secondItem="ZCR-iH-YJy" secondAttribute="leading" id="7aJ-1c-u5K"/>
+                            <constraint firstItem="ghw-U9-ldE" firstAttribute="top" secondItem="2MZ-8W-Uqj" secondAttribute="bottom" id="JF4-z6-dWY"/>
                             <constraint firstItem="y1M-Uf-Uik" firstAttribute="height" secondItem="ghw-U9-ldE" secondAttribute="height" id="U3Q-qG-vpY"/>
                             <constraint firstItem="y1M-Uf-Uik" firstAttribute="width" secondItem="ZCR-iH-YJy" secondAttribute="width" id="Ws8-be-hg4"/>
                             <constraint firstItem="y1M-Uf-Uik" firstAttribute="centerX" secondItem="ghw-U9-ldE" secondAttribute="centerX" id="bMZ-gC-7OT"/>
                             <constraint firstAttribute="trailing" secondItem="2MZ-8W-Uqj" secondAttribute="trailing" id="enf-Dr-auy"/>
-                            <constraint firstItem="ghw-U9-ldE" firstAttribute="top" secondItem="2MZ-8W-Uqj" secondAttribute="bottom" constant="10" id="ni3-cH-aoN"/>
                             <constraint firstItem="y1M-Uf-Uik" firstAttribute="centerY" secondItem="ghw-U9-ldE" secondAttribute="centerY" id="qzE-qh-L0g"/>
                             <constraint firstItem="2MZ-8W-Uqj" firstAttribute="top" secondItem="nNr-Xt-LjK" secondAttribute="bottom" constant="60" id="ys5-6c-qYF" customClass="PLMultiLayoutConstraint">
                                 <userDefinedRuntimeAttributes>
@@ -161,6 +163,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="i2r-UG-7b5"/>
+                    <connections>
+                        <outlet property="errorView" destination="y1M-Uf-Uik" id="GTl-yc-Uxl"/>
+                        <outlet property="illustration" destination="Q9H-fs-AgY" id="j8w-3c-evA"/>
+                        <outlet property="pinField" destination="Em4-62-nHK" id="1lL-1H-URo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQa-9V-7L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

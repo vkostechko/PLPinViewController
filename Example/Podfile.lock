@@ -7,11 +7,13 @@ PODS:
     - PLForm
     - PureLayout
   - PureLayout (3.0.2)
+  - Reveal-SDK (2)
 
 DEPENDENCIES:
   - Expecta
   - OCMock
   - PLPinViewController (from `../`)
+  - Reveal-SDK
 
 EXTERNAL SOURCES:
   PLPinViewController:
@@ -23,7 +25,8 @@ SPEC CHECKSUMS:
   PLForm: ef98e25875079ff22eedf51b16e0f0184f8c7942
   PLPinViewController: 8ac87cd93e6a1b22c5c6896cf4ebc5741c07e8ca
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  Reveal-SDK: 4d36a47c7091843eee525b72219e005b90bbac0b
 
-PODFILE CHECKSUM: d2d9f65c303cc48f767a5e92078e0cdb22223c98
+PODFILE CHECKSUM: fbc0f7b1585f7b0b679ddc7b691a8ba1c0af36fa
 
 COCOAPODS: 1.0.1

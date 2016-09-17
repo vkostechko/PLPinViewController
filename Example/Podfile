@@ -3,7 +3,8 @@ use_frameworks!
 
 target 'PLPinViewController_Example' do
   pod 'PLPinViewController', :path => '../'
-  
+  pod 'Reveal-SDK', :configurations => ['Debug']
+ 
   target 'PLPinViewController_Tests' do
     inherit! :search_paths
 
