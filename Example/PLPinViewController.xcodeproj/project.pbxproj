@@ -11,6 +11,7 @@
 		107E1C8D1D8DF28200D20460 /* PLPinViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E1C821D8DF23800D20460 /* PLPinViewControllerTests.m */; };
 		107E1C8E1D8DF28600D20460 /* PLRunLoopRunUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E1C841D8DF23800D20460 /* PLRunLoopRunUntil.m */; };
 		107E1C8F1D8DF28A00D20460 /* PLTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E1C861D8DF23800D20460 /* PLTestCase.m */; };
+		107E1C911D8DF55A00D20460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107E1C901D8DF55A00D20460 /* LaunchScreen.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -45,6 +46,7 @@
 		107E1C861D8DF23800D20460 /* PLTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLTestCase.m; sourceTree = "<group>"; };
 		107E1C8A1D8DF26300D20460 /* PLExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLExampleViewController.h; sourceTree = "<group>"; };
 		107E1C8B1D8DF26300D20460 /* PLExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLExampleViewController.m; sourceTree = "<group>"; };
+		107E1C901D8DF55A00D20460 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20F6265BB674A8725CB48212 /* Pods_PLPinViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PLPinViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9A546A8E1DAC6C9361D222 /* Pods-PLPinViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLPinViewController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PLPinViewController_Example/Pods-PLPinViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3623F67CEF232C76C5A28E0A /* PLPinViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PLPinViewController.podspec; path = ../PLPinViewController.podspec; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				6003F59C195388D20070C39A /* PLAppDelegate.h */,
 				6003F59D195388D20070C39A /* PLAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				107E1C901D8DF55A00D20460 /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				107E1C911D8DF55A00D20460 /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
