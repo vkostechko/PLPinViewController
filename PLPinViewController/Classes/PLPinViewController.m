@@ -14,6 +14,8 @@
 
 @interface PLPinViewController () <UINavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 @property (nonatomic,strong) NSString *lastIdentifier;
 @property (nonatomic,strong) NSString *initialIdentifier;
 
@@ -21,10 +23,11 @@
 
 @implementation PLPinViewController
 
-+ (void)showControllerWithAction:(PLPinViewControllerAction)action delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
++ (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
 {
     PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
     vc.pinDelegate = delegate;
+    vc.enableCancel = enableCancel;
 
     switch (action) {
         case PLPinViewControllerActionCreate:
@@ -134,6 +137,7 @@
     else
     {
         [self.view addSubview:viewControllerToPresent.view];
+        [self.view bringSubviewToFront:self.cancelButton];
         [_currentController.view removeFromSuperview];
         [_currentController removeFromParentViewController];
         [viewControllerToPresent didMoveToParentViewController:self];

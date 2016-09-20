@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -121,11 +122,23 @@
                                     <constraint firstItem="NOh-kk-tW2" firstAttribute="centerX" secondItem="y1M-Uf-Uik" secondAttribute="centerX" id="fJe-dF-pRF"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nd-JA-8fw">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LCq-Vx-ays"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="FTN-XV-rHC" eventType="touchUpInside" id="6Tz-WO-dai"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ghw-U9-ldE" firstAttribute="centerX" secondItem="ZCR-iH-YJy" secondAttribute="centerX" id="1Vi-27-DX1"/>
+                            <constraint firstItem="2nd-JA-8fw" firstAttribute="leading" secondItem="ZCR-iH-YJy" secondAttribute="leading" constant="20" id="4De-G8-Nob"/>
                             <constraint firstItem="2MZ-8W-Uqj" firstAttribute="leading" secondItem="ZCR-iH-YJy" secondAttribute="leading" id="7aJ-1c-u5K"/>
+                            <constraint firstItem="2nd-JA-8fw" firstAttribute="top" secondItem="ZCR-iH-YJy" secondAttribute="topMargin" constant="40" id="7mC-J8-fwL"/>
                             <constraint firstItem="ghw-U9-ldE" firstAttribute="top" secondItem="2MZ-8W-Uqj" secondAttribute="bottom" id="JF4-z6-dWY"/>
                             <constraint firstItem="y1M-Uf-Uik" firstAttribute="height" secondItem="ghw-U9-ldE" secondAttribute="height" id="U3Q-qG-vpY"/>
                             <constraint firstItem="y1M-Uf-Uik" firstAttribute="width" secondItem="ZCR-iH-YJy" secondAttribute="width" id="Ws8-be-hg4"/>
@@ -146,6 +159,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="i2r-UG-7b5"/>
                     <connections>
+                        <outlet property="cancelButton" destination="2nd-JA-8fw" id="YYu-Kh-ash"/>
                         <outlet property="errorView" destination="y1M-Uf-Uik" id="GTl-yc-Uxl"/>
                         <outlet property="illustration" destination="Q9H-fs-AgY" id="j8w-3c-evA"/>
                         <outlet property="pinField" destination="Em4-62-nHK" id="1lL-1H-URo"/>
@@ -522,11 +536,23 @@
                                     <constraint firstAttribute="height" constant="30" id="uFx-hd-x4J"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMR-Ch-Wxo">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uxK-0R-Idd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="b9x-iR-8Os" eventType="touchUpInside" id="dMU-45-TEW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="eMR-Ch-Wxo" firstAttribute="top" secondItem="TiT-7Q-KG3" secondAttribute="topMargin" constant="40" id="SN3-BT-zgz"/>
                             <constraint firstItem="jDc-Mq-HYD" firstAttribute="width" secondItem="TiT-7Q-KG3" secondAttribute="width" id="TNh-oP-Qvv"/>
                             <constraint firstAttribute="trailing" secondItem="hdM-H5-FMD" secondAttribute="trailing" id="glo-7X-NkX"/>
+                            <constraint firstItem="eMR-Ch-Wxo" firstAttribute="leading" secondItem="TiT-7Q-KG3" secondAttribute="leading" constant="20" id="kDB-tm-G0H"/>
                             <constraint firstItem="jDc-Mq-HYD" firstAttribute="top" secondItem="hdM-H5-FMD" secondAttribute="bottom" id="vUH-gX-vEJ"/>
                             <constraint firstItem="hdM-H5-FMD" firstAttribute="top" secondItem="DYm-mG-LgQ" secondAttribute="bottom" constant="20" id="vyl-xo-dMQ" customClass="PLMultiLayoutConstraint">
                                 <userDefinedRuntimeAttributes>
@@ -544,6 +570,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WkN-Dn-3Qv"/>
                     <connections>
+                        <outlet property="cancelButton" destination="eMR-Ch-Wxo" id="Ma1-bZ-B2l"/>
                         <outlet property="errorView" destination="jDc-Mq-HYD" id="0M7-1y-BEm"/>
                         <outlet property="illustration" destination="MQL-dr-xc7" id="rTL-0e-bvk"/>
                         <outlet property="pinField" destination="nYH-N5-F1j" id="exS-AJ-zvO"/>

@@ -27,21 +27,21 @@
 }
 
 - (IBAction)createPinPressed:(id)sender {
-    [PLPinViewController showControllerWithAction:PLPinViewControllerActionCreate delegate:self animated:YES];
+    [PLPinViewController showControllerWithAction:PLPinViewControllerActionCreate enableCancel:NO delegate:self animated:YES];
 }
 
 - (IBAction)changePinPressed:(id)sender {
-    [PLPinViewController showControllerWithAction:PLPinViewControllerActionChange delegate:self animated:YES];
+    [PLPinViewController showControllerWithAction:PLPinViewControllerActionChange enableCancel:YES delegate:self animated:YES];
 }
 
 
 - (IBAction)enterPinPressed:(id)sender {
-    [PLPinViewController showControllerWithAction:PLPinViewControllerActionEnter delegate:self animated:YES];
+    [PLPinViewController showControllerWithAction:PLPinViewControllerActionEnter enableCancel:YES delegate:self animated:YES];
 }
 
 - (void)pinViewControllerDidCancel:(PLPinViewController *)controller;
 {
-    
+    [PLPinViewController dismiss];
 }
 
 - (void)pinViewControllerDidLogout:(PLPinViewController *)controller;

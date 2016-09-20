@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet PLFormPinField *pinField;
 @property (weak, nonatomic) IBOutlet UIImageView *illustration;
 @property (weak, nonatomic) IBOutlet UIView *errorView;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -38,6 +39,9 @@
     CGSize result = [[UIScreen mainScreen] bounds].size;
     self.illustration.hidden = (result.height == 480);
     self.errorView.alpha = 0.0f;
+    
+    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    self.cancelButton.hidden = !vc.enableCancel;
 }
 
 -(void)dealloc
@@ -118,7 +122,18 @@
     PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidLogout:)])
     {
-        [vc.pinDelegate pinViewControllerDidLogout:self];
+        [vc.pinDelegate pinViewControllerDidLogout:vc];
+    }
+}
+
+- (IBAction)cancelPressed:(id)sender {
+    
+    [self.view endEditing:YES];
+    
+    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidCancel::)])
+    {
+        [vc.pinDelegate pinViewControllerDidCancel:vc];
     }
 }
 
