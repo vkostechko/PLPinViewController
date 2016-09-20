@@ -8,6 +8,8 @@
 
 #import "PLConfirmPinViewController.h"
 #import "PLFormPinField.h"
+#import "PLPinViewController.h"
+#import "PLEnterPinWindow.h"
 
 @import PLForm;
 
@@ -51,51 +53,18 @@
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;
 {
-    // check if the pin is the same as the one we were given
-    // if its not unwind, if it is then open the app
-    
-    // inform delegate that pin was ok
-/*
     if ([pinElement.value isEqualToString:self.pin] )
     {
-        // the pin matches so lets open the app
-        [PLClientCache setPassword:pinElement.value];
-        [[YPDataModelStack defaultStack].clientCache save];
-
-        // just in case we have been a user before fetch some other data
-        [YPNotification fetchNextPageWithCompletion:nil];
-        [YPImage fetchFirstPageForUser:[YPDataModelStack defaultStack].clientCache.currentUser completion:nil];
-        
-        if ([YPFeedImage shouldFetchNextpage])
+        PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+        if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didSetPin:)])
         {
-            [YPFeedImage fetchFirstPageWithCompletion:nil];
-        }
-        
-        // if we are "modal" then we are changing pin not creaeting pin so the flow is different
-        if (self.navigationController.presentingViewController != nil)
-        {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-        else
-        {
-            // we may not need to ask for permissions becuase we could be re-logging in.
-            // lets check our permission status..
-            if (([PLPermissions pushNotificationPermissionStatus] == PLPermissionsStatusAuthorized) &&
-                ([PLPermissions contactsPermissionStatus] == PLPermissionsStatusAuthorized))
-            {
-                [self importAddressBook];
-            }
-            else
-            {
-                [[self rootContainerViewController] presentPermissions];
-            }
+            [vc.pinDelegate pinViewController:self didSetPin:pinElement.value];
         }
     }
     else
     {
         [self performSegueWithIdentifier:@"unwindToCreatPin" sender:nil];
     }
-*/
 }
 
 

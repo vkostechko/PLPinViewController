@@ -8,6 +8,8 @@
 
 #import "PLEnterPinViewController.h"
 #import "PLFormPinField.h"
+#import "PLPinViewController.h"
+#import "PLEnterPinWindow.h"
 
 
 @import PLForm;
@@ -58,20 +60,27 @@
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;
 {
-    // call a delegate to check if the pin code is ok
-/*
-    // lets defer this for a fraction so we allow the dot of the last key press to appear
-    if ([PLClientCache unlockWithPassword:pinElement.value])
+    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:shouldAcceptPin:)])
     {
-        // we may need to set the push token as the cache may have been locked when the token arrived
-        AppDelegate *appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        [appDel dismissEnterPin];
+        if ([vc.pinDelegate pinViewController:self shouldAcceptPin:pinElement.value])
+        {
+            [self correctPin];
+        }
+        else
+        {
+            [self incorrectPin];
+        }
     }
-    else
+}
+
+-(void)correctPin
+{
+    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didEnterPin:)])
     {
-        [self incorrectPin];
+        [vc.pinDelegate pinViewController:self didEnterPin:pinElement.value];
     }
-*/
 }
 
 -(void)incorrectPin
@@ -106,25 +115,11 @@
     
     [self.view endEditing:YES];
     
-    // notify delegate that logout pressed
-/*
-    [SVProgressHUD showWithStatus:@"Checking"];
-    [PLUser logoutWithCompletion:^(NSError *error)
-     {
-         [[YPDataModelStack defaultStack] reloadPersistenceController];
-         [SVProgressHUD dismiss];
-         if (error)
-         {
-             [self presentViewController:[UIAlertController alertWithError:error] animated:YES completion:nil];
-         }
-         else
-         {
-             [self.rootContainerViewController  presentRegister];
-             AppDelegate *appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
-             [appDel dismissEnterPin];
-         }
-     }];
-*/
+    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidLogout:)])
+    {
+        [vc.pinDelegate pinViewControllerDidLogout:self];
+    }
 }
 
 @end

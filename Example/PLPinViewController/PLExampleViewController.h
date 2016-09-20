@@ -8,7 +8,9 @@
 
 @import UIKit;
 
-@interface PLExampleViewController : UIViewController
+@import PLPinViewController;
+
+@interface PLExampleViewController : UIViewController <PLPinViewControllerDelegate>
 
 - (IBAction)createPinPressed:(id)sender;
 - (IBAction)changePinPressed:(id)sender;

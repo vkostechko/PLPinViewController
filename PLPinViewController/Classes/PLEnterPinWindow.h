@@ -10,6 +10,10 @@
 
 @interface PLEnterPinWindow : UIWindow
 
-+ (instancetype)pinWindow;
++ (instancetype)defaultInstance;
+
+-(void)showAnimated:(BOOL)animated;
+-(void)hideAnimated:(BOOL)animated;
+
 
 @end

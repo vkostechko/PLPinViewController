@@ -10,24 +10,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Pin View Controller-->
-        <scene sceneID="JrT-fn-o9p">
-            <objects>
-                <navigationController storyboardIdentifier="PLPinViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3ZH-eu-dvt" customClass="PLPinViewController" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="98i-Vz-pRg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FTN-XV-rHC" kind="relationship" relationship="rootViewController" id="DdG-ju-8Qc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nfY-B8-FiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="116" y="-604"/>
-        </scene>
         <!--Enter Pin View Controller-->
         <scene sceneID="aWx-P9-RB3">
             <objects>
@@ -37,22 +19,22 @@
                         <viewControllerLayoutGuide type="bottom" id="Rg5-Id-R9I"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZCR-iH-YJy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2MZ-8W-Uqj">
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="secret" translatesAutoresizingMaskIntoConstraints="NO" id="Q9H-fs-AgY">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="Q9H-fs-AgY">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="133" id="ZfQ-un-CAE" customClass="PLVerticalScaleConstraint"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME BACK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WN-Lg-XrT" customClass="YPAttributedLabel">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="TKq-Us-Iz5"/>
+                                            <constraint firstAttribute="height" constant="35" id="TKq-Us-Iz5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                        <color key="textColor" red="0.3411764706" green="0.56470588239999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.11764705882352941" green="0.68627450980392157" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
@@ -75,24 +57,24 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="c9d-um-dfq" firstAttribute="centerX" secondItem="0Wq-hd-q8B" secondAttribute="centerX" id="LoL-mh-2bi"/>
                                             <constraint firstItem="c9d-um-dfq" firstAttribute="centerY" secondItem="0Wq-hd-q8B" secondAttribute="centerY" id="bwc-2D-MpP"/>
-                                            <constraint firstAttribute="height" constant="40" id="jXE-J6-WjW"/>
+                                            <constraint firstAttribute="height" constant="35" id="jXE-J6-WjW"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAg-vO-aPr">
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em4-62-nHK" customClass="PLFormPinField">
-                                                <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="auR-0A-dun"/>
                                                     <constraint firstAttribute="width" constant="155" id="dEx-NU-Ji8"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1aA-eo-i1Q"/>
                                             <constraint firstItem="Em4-62-nHK" firstAttribute="centerY" secondItem="NAg-vO-aPr" secondAttribute="centerY" id="82f-Jl-u7l"/>
@@ -106,7 +88,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="tiS-xr-dCz"/>
+                                    <constraint firstAttribute="height" constant="265" id="tiS-xr-dCz"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-U9-ldE">
@@ -140,7 +122,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ghw-U9-ldE" firstAttribute="centerX" secondItem="ZCR-iH-YJy" secondAttribute="centerX" id="1Vi-27-DX1"/>
                             <constraint firstItem="2MZ-8W-Uqj" firstAttribute="leading" secondItem="ZCR-iH-YJy" secondAttribute="leading" id="7aJ-1c-u5K"/>
@@ -150,7 +132,7 @@
                             <constraint firstItem="y1M-Uf-Uik" firstAttribute="centerX" secondItem="ghw-U9-ldE" secondAttribute="centerX" id="bMZ-gC-7OT"/>
                             <constraint firstAttribute="trailing" secondItem="2MZ-8W-Uqj" secondAttribute="trailing" id="enf-Dr-auy"/>
                             <constraint firstItem="y1M-Uf-Uik" firstAttribute="centerY" secondItem="ghw-U9-ldE" secondAttribute="centerY" id="qzE-qh-L0g"/>
-                            <constraint firstItem="2MZ-8W-Uqj" firstAttribute="top" secondItem="nNr-Xt-LjK" secondAttribute="bottom" constant="60" id="ys5-6c-qYF" customClass="PLMultiLayoutConstraint">
+                            <constraint firstItem="2MZ-8W-Uqj" firstAttribute="top" secondItem="nNr-Xt-LjK" secondAttribute="bottom" constant="20" id="ys5-6c-qYF" customClass="PLMultiLayoutConstraint">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="constantXC">
                                         <real key="value" value="40"/>
@@ -173,8 +155,430 @@
             </objects>
             <point key="canvasLocation" x="1065" y="-604"/>
         </scene>
+        <!--Pin View Controller-->
+        <scene sceneID="oGv-aE-nfs">
+            <objects>
+                <viewController storyboardIdentifier="PLPinViewController" extendedLayoutIncludesOpaqueBars="YES" id="fBe-FM-yAI" customClass="PLPinViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UnV-3Q-RFZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="PGr-XH-9Fh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fuZ-2C-aDM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="FTN-XV-rHC" kind="custom" identifier="showEnterPin" customClass="PLPinControllerSeque" id="KH7-5f-NHo"/>
+                        <segue destination="9kk-XK-QD3" kind="custom" identifier="showCreatePin" customClass="PLPinControllerSeque" id="FT2-CD-w13"/>
+                        <segue destination="Fft-NU-UZD" kind="custom" identifier="showChangePin" customClass="PLPinControllerSeque" id="NuD-iW-H4T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cwF-IS-UEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-266" y="-97"/>
+        </scene>
+        <!--Create Pin View Controller-->
+        <scene sceneID="Wlq-E2-Aj2">
+            <objects>
+                <viewController id="uxa-Vc-C4o" customClass="PLCreatePinViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jsa-SI-92Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="Psx-1F-HWU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BZJ-xx-nge">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Fue-Jh-ev2">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE PIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znm-o6-gfh" customClass="YPAttributedLabel">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="Eto-Vj-1AC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                        <color key="textColor" red="0.11764705882352941" green="0.68627450980392157" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                <real key="value" value="1.3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontFamily" value="Montserrat-Regular"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbc-W7-DxO">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a 4 digit pin to keep your data safe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHH-uY-tgg" customClass="YPAttributedLabel">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="272" id="94N-kf-VJA"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" red="0.51372549020000002" green="0.53333333329999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="RqI-JP-KKr"/>
+                                            <constraint firstItem="RHH-uY-tgg" firstAttribute="centerX" secondItem="jbc-W7-DxO" secondAttribute="centerX" id="kgu-0H-9Bf"/>
+                                            <constraint firstItem="RHH-uY-tgg" firstAttribute="centerY" secondItem="jbc-W7-DxO" secondAttribute="centerY" id="q3z-D6-7VQ"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="idC-cI-CCZ">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="133" id="0es-RJ-2GI" customClass="PLVerticalScaleConstraint"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiu-0G-6HG">
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-aw-LNx" customClass="PLFormPinField">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="XwT-Pt-asK"/>
+                                                    <constraint firstAttribute="width" constant="155" id="ty0-mA-unR"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="dfe-aw-LNx" firstAttribute="centerX" secondItem="jiu-0G-6HG" secondAttribute="centerX" id="1PY-7Q-5bm"/>
+                                            <constraint firstItem="dfe-aw-LNx" firstAttribute="centerY" secondItem="jiu-0G-6HG" secondAttribute="centerY" id="LG9-o0-bt4"/>
+                                            <constraint firstAttribute="height" constant="40" id="RMP-DZ-4mV"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PINS DON'T MATCH, TRY AGAIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJM-yJ-uDl">
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="301" id="qvU-2t-9XV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fue-Jh-ev2" firstAttribute="leading" secondItem="BZJ-xx-nge" secondAttribute="leading" id="5Fg-0c-aPi"/>
+                            <constraint firstAttribute="trailing" secondItem="Fue-Jh-ev2" secondAttribute="trailing" id="8Lv-hK-kpT"/>
+                            <constraint firstItem="Fue-Jh-ev2" firstAttribute="top" secondItem="jsa-SI-92Z" secondAttribute="bottom" constant="20" id="LzO-0f-Dk9" customClass="PLMultiLayoutConstraint">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constantXC">
+                                        <real key="value" value="-8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constantXXC">
+                                        <real key="value" value="-8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zt9-tk-MG8"/>
+                    <connections>
+                        <outlet property="errorLabel" destination="AJM-yJ-uDl" id="btE-ax-u9g"/>
+                        <outlet property="illustration" destination="idC-cI-CCZ" id="h5d-9F-wVw"/>
+                        <outlet property="pinField" destination="dfe-aw-LNx" id="xm6-OC-Yo7"/>
+                        <segue destination="83k-cr-wIe" kind="show" identifier="advance" id="GIw-mr-CZc">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0Q-QK-2Vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2062.5" y="301.05633802816902"/>
+        </scene>
+        <!--Confirm Pin View Controller-->
+        <scene sceneID="czb-CX-3nx">
+            <objects>
+                <viewController id="83k-cr-wIe" customClass="PLConfirmPinViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Jh-cm-peY"/>
+                        <viewControllerLayoutGuide type="bottom" id="mj2-0X-rF6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VRR-8O-iTU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="EjH-ge-HMX">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REPEAT PIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi3-kU-FOM" customClass="YPAttributedLabel">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="ytI-bL-UNQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                        <color key="textColor" red="0.11764705882352941" green="0.68627450980392157" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                <real key="value" value="1.3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontFamily" value="Montserrat-Regular"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caB-rf-fC1">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat your pin code to confirm its correct" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntC-2n-Qd0" customClass="YPAttributedLabel">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="272" id="HhM-wn-Ykp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" red="0.51372549020000002" green="0.53333333329999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ntC-2n-Qd0" firstAttribute="centerX" secondItem="caB-rf-fC1" secondAttribute="centerX" id="Osi-ko-4Xw"/>
+                                            <constraint firstItem="ntC-2n-Qd0" firstAttribute="centerY" secondItem="caB-rf-fC1" secondAttribute="centerY" id="m4k-Y5-n8m"/>
+                                            <constraint firstAttribute="height" constant="60" id="m8b-JO-MUQ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-Db-1WK">
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-Yq-f88">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="133" id="61u-LT-318" customClass="PLVerticalScaleConstraint"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="1Eh-Yq-f88" firstAttribute="centerY" secondItem="dwB-Db-1WK" secondAttribute="centerY" id="3Gf-N5-JzC"/>
+                                            <constraint firstItem="1Eh-Yq-f88" firstAttribute="centerX" secondItem="dwB-Db-1WK" secondAttribute="centerX" id="Hdz-df-NJ5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZR-3j-Q1n">
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8G-xv-Kxh" customClass="PLFormPinField">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="155" id="4x1-7R-7v4"/>
+                                                    <constraint firstAttribute="height" constant="30" id="tB7-1R-rpQ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="h8G-xv-Kxh" firstAttribute="centerX" secondItem="jZR-3j-Q1n" secondAttribute="centerX" id="CcY-7W-Vig"/>
+                                            <constraint firstAttribute="height" constant="40" id="U1l-iW-BIL"/>
+                                            <constraint firstItem="h8G-xv-Kxh" firstAttribute="centerY" secondItem="jZR-3j-Q1n" secondAttribute="centerY" id="dEL-8m-Eqj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="283" id="2Xv-kc-i4z"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EjH-ge-HMX" firstAttribute="leading" secondItem="VRR-8O-iTU" secondAttribute="leading" id="cDm-t5-kpX"/>
+                            <constraint firstAttribute="trailing" secondItem="EjH-ge-HMX" secondAttribute="trailing" id="fBk-ul-dEj"/>
+                            <constraint firstItem="EjH-ge-HMX" firstAttribute="top" secondItem="0Jh-cm-peY" secondAttribute="bottom" constant="20" id="nhI-IF-ntH" customClass="PLMultiLayoutConstraint">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constantXC">
+                                        <real key="value" value="-8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constantXXC">
+                                        <real key="value" value="-8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="O7e-OA-3SA"/>
+                    <connections>
+                        <outlet property="illustration" destination="1Eh-Yq-f88" id="7Ll-4T-ppj"/>
+                        <outlet property="pinField" destination="h8G-xv-Kxh" id="ed2-d8-PWY"/>
+                        <segue destination="APp-DC-Ckw" kind="unwind" identifier="unwindToCreatPin" unwindAction="unwindToCreatPin:" id="5Mm-nC-dzc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJW-WU-QuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="APp-DC-Ckw" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3060" y="300"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k1R-1E-4xM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="9kk-XK-QD3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vTt-kd-tYT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uxa-Vc-C4o" kind="relationship" relationship="rootViewController" id="0Fq-qK-SHd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IGu-T3-LYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="301.05633802816902"/>
+        </scene>
+        <!--Change Pin View Controller-->
+        <scene sceneID="eGA-mc-LsK">
+            <objects>
+                <viewController id="b9x-iR-8Os" customClass="PLChangePinViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DYm-mG-LgQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="gza-2U-OEq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TiT-7Q-KG3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hdM-H5-FMD">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHANGE PIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHk-be-chd" customClass="YPAttributedLabel">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="dXY-a7-7R8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                        <color key="textColor" red="0.1176470588" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                <real key="value" value="1.3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontFamily" value="Montserrat-Regular"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3W2-O0-mh4">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your existing PIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjJ-9b-aCi" customClass="YPAttributedLabel">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="272" id="KsH-Vh-jpc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" red="0.51372549020000002" green="0.53333333329999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="jjJ-9b-aCi" firstAttribute="centerX" secondItem="3W2-O0-mh4" secondAttribute="centerX" id="6jU-TP-Ybk"/>
+                                            <constraint firstItem="jjJ-9b-aCi" firstAttribute="centerY" secondItem="3W2-O0-mh4" secondAttribute="centerY" id="kfh-71-QNy"/>
+                                            <constraint firstAttribute="height" constant="60" id="wTs-0R-N92"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLj-8y-DHB">
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="MQL-dr-xc7">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="133" id="khJ-LR-yvw" customClass="PLVerticalScaleConstraint"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="MQL-dr-xc7" firstAttribute="centerX" secondItem="uLj-8y-DHB" secondAttribute="centerX" id="Ioo-rZ-6ht"/>
+                                            <constraint firstItem="MQL-dr-xc7" firstAttribute="centerY" secondItem="uLj-8y-DHB" secondAttribute="centerY" id="aoZ-TQ-tIu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtW-E2-Bub">
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYH-N5-F1j" customClass="PLFormPinField">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="VxF-JB-zIj"/>
+                                                    <constraint firstAttribute="width" constant="155" id="lxe-K0-J4M"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="nYH-N5-F1j" firstAttribute="centerY" secondItem="CtW-E2-Bub" secondAttribute="centerY" id="4FS-Ul-ykL"/>
+                                            <constraint firstItem="nYH-N5-F1j" firstAttribute="centerX" secondItem="CtW-E2-Bub" secondAttribute="centerX" id="Rwg-de-GEj"/>
+                                            <constraint firstAttribute="height" constant="40" id="woY-Y2-b3t"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="283" id="mc6-ia-UFa"/>
+                                </constraints>
+                            </stackView>
+                            <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDc-Mq-HYD">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVALID PIN, TRY AGAIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhe-9c-UDj">
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jhe-9c-UDj" firstAttribute="centerX" secondItem="jDc-Mq-HYD" secondAttribute="centerX" id="Y8x-fP-yhH"/>
+                                    <constraint firstItem="jhe-9c-UDj" firstAttribute="centerY" secondItem="jDc-Mq-HYD" secondAttribute="centerY" id="hdD-bb-B3U"/>
+                                    <constraint firstAttribute="height" constant="30" id="uFx-hd-x4J"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jDc-Mq-HYD" firstAttribute="width" secondItem="TiT-7Q-KG3" secondAttribute="width" id="TNh-oP-Qvv"/>
+                            <constraint firstAttribute="trailing" secondItem="hdM-H5-FMD" secondAttribute="trailing" id="glo-7X-NkX"/>
+                            <constraint firstItem="jDc-Mq-HYD" firstAttribute="top" secondItem="hdM-H5-FMD" secondAttribute="bottom" id="vUH-gX-vEJ"/>
+                            <constraint firstItem="hdM-H5-FMD" firstAttribute="top" secondItem="DYm-mG-LgQ" secondAttribute="bottom" constant="20" id="vyl-xo-dMQ" customClass="PLMultiLayoutConstraint">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constantXC">
+                                        <real key="value" value="-8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constantXXC">
+                                        <real key="value" value="-8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="hdM-H5-FMD" firstAttribute="leading" secondItem="TiT-7Q-KG3" secondAttribute="leading" id="wGE-zy-qBe"/>
+                            <constraint firstItem="jDc-Mq-HYD" firstAttribute="centerX" secondItem="TiT-7Q-KG3" secondAttribute="centerX" id="xX5-O8-z8C"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WkN-Dn-3Qv"/>
+                    <connections>
+                        <outlet property="errorView" destination="jDc-Mq-HYD" id="0M7-1y-BEm"/>
+                        <outlet property="illustration" destination="MQL-dr-xc7" id="rTL-0e-bvk"/>
+                        <outlet property="pinField" destination="nYH-N5-F1j" id="exS-AJ-zvO"/>
+                        <segue destination="fcX-sR-Qae" kind="unwind" identifier="unwindToCreatPin" unwindAction="unwindToCreatPin:" id="FLf-II-qKD"/>
+                        <segue destination="uxa-Vc-C4o" kind="show" identifier="advance" id="mlO-zN-Ovb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="prs-HP-xXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fcX-sR-Qae" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2004" y="1204.9475262368817"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uCa-yF-lH4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Fft-NU-UZD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tkD-1Y-IYR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b9x-iR-8Os" kind="relationship" relationship="rootViewController" id="RU8-NT-7Tu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5HU-uK-t3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064.8" y="1204.9475262368817"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="secret" width="177" height="133"/>
+        <image name="padlock" width="150" height="150"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mlO-zN-Ovb"/>
+    </inferredMetricsTieBreakers>
 </document>

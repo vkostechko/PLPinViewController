@@ -20,19 +20,24 @@ typedef NS_ENUM(NSInteger, PLPinViewControllerAction) {
 
 @optional
 
-- (void)PLPinViewControllerDidCancel:(PLPinViewController *)controller;
-- (void)PLPinViewControllerDidChangePasscode:(PLPinViewController *)controller;
-- (void)PLPinViewControllerDidEnterAlternativePasscode:(PLPinViewController *)controller;
-- (void)PLPinViewControllerDidEnterPasscode:(PLPinViewController *)controller;
-- (void)PLPinViewControllerDidSetPasscode:(PLPinViewController *)controller;
-- (void)PLPinViewControllerDidFailToEnterPasscode:(NSInteger)attempts;
+- (void)pinViewControllerDidCancel:(PLPinViewController *)controller;
+- (void)pinViewControllerDidLogout:(PLPinViewController *)controller;
+- (void)pinViewController:(PLPinViewController *)controller didChangePin:(NSString*)pin;
+- (void)pinViewController:(PLPinViewController *)controller didEnterPin:(NSString*)pin;
+- (BOOL)pinViewController:(PLPinViewController *)controller shouldAcceptPin:(NSString*)pin;
+- (void)pinViewController:(PLPinViewController *)controller didSetPin:(NSString*)pin;
 
 @end
 
-@interface PLPinViewController : UINavigationController
+@interface PLPinViewController : UIViewController
 
+@property (nonatomic, strong, readonly) UIViewController *currentController;
 @property (weak) id<PLPinViewControllerDelegate> pinDelegate;
 
-+ (instancetype)pinControllerWithTitle:(NSString *)title action:(PLPinViewControllerAction)action;
++ (void)showControllerWithAction:(PLPinViewControllerAction)action delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated;
++(void)dismiss;
+
+
+-(void)presentContainedViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)animated;
 
 @end

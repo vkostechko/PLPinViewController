@@ -8,11 +8,10 @@
 
 #import "PLCreatePinViewController.h"
 #import "PLFormPinField.h"
-#import "PLSlideTransition.h"
 
 @import PLForm;
 
-@interface PLCreatePinViewController () <PLFormElementDelegate, UINavigationControllerDelegate>
+@interface PLCreatePinViewController () <PLFormElementDelegate>
 {
     PLFormPinFieldElement *pinElement;
 }
@@ -40,23 +39,12 @@
     self.illustration.hidden = (result.height == 480);
     self.errorLabel.alpha = 0;
     
-    self.navigationController.delegate = self;
+//    self.disablesAutomaticKeyboardDismissal = YES; // ios10
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-}
-
-
-- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                   animationControllerForOperation:(UINavigationControllerOperation)operation
-                                                fromViewController:(UIViewController *)fromVC
-                                                  toViewController:(UIViewController *)toVC
-{
-    PLSlideTransition *transition = [PLSlideTransition new];
-    transition.operation = operation;
-    return transition;
 }
 
 

@@ -9,54 +9,137 @@
 #import "PLPinViewController.h"
 #import "PLCreatePinViewController.h"
 #import "PLEnterPinViewController.h"
+#import "PLEnterPinWindow.h"
+#import "PLSlideTransition.h"
 
-@interface PLPinViewController ()
+@interface PLPinViewController () <UINavigationControllerDelegate>
+
+@property (nonatomic,strong) NSString *lastIdentifier;
+@property (nonatomic,strong) NSString *initialIdentifier;
 
 @end
 
 @implementation PLPinViewController
 
-+ (instancetype)pinControllerWithTitle:(NSString *)title action:(PLPinViewControllerAction)action;
++ (void)showControllerWithAction:(PLPinViewControllerAction)action delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
 {
-    // create the relevant first controller
-    UIViewController *topController = nil;
-    
+    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    vc.pinDelegate = delegate;
+
     switch (action) {
         case PLPinViewControllerActionCreate:
-            topController = [PLCreatePinViewController new];
+            vc.initialIdentifier = @"showCreatePin";
             break;
         case PLPinViewControllerActionChange:
-            topController = [PLCreatePinViewController new];
+            vc.initialIdentifier = @"showChangePin";
             break;
         case PLPinViewControllerActionEnter:
-            topController = [PLEnterPinViewController new];
+            vc.initialIdentifier = @"showEnterPin";
             break;
             
         default:
             break;
     }
-    
-    
-    NSBundle *podBundle = [NSBundle bundleForClass:[self class]];
-    NSURL *bundleUrl = [podBundle URLForResource:@"PLPinViewController" withExtension:@"bundle"];
-    NSBundle *bundle = [NSBundle bundleWithURL:bundleUrl];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PLPinViewController" bundle:bundle];
-    
-    PLPinViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PLPinViewController"];
-    vc.title = title;
-    vc.navigationBarHidden = YES;
-    return vc;
+
+    if (vc.initialIdentifier  && [vc isViewLoaded] && vc.view.window)
+    {
+        [vc performSegueWithIdentifier:vc.initialIdentifier sender:nil];
+    }
+    [[PLEnterPinWindow defaultInstance] showAnimated:animated];
+}
+
++(void)dismiss
+{
+    [[PLEnterPinWindow defaultInstance] hideAnimated:YES];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if (self.initialIdentifier)
+    {
+        [self performSegueWithIdentifier:self.initialIdentifier sender:nil];
+        return;
+    }
+
+    [self performSegueWithIdentifier:@"showEnterPin" sender:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [super prepareForSegue:segue sender:sender];
+    self.lastIdentifier = [segue.identifier copy];
+    self.initialIdentifier = nil;
+    
+    if ([segue.destinationViewController isKindOfClass:[UINavigationController class]])
+    {
+        ((UINavigationController*)segue.destinationViewController).delegate = self;
+    }
+}
+
+
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                fromViewController:(UIViewController *)fromVC
+                                                  toViewController:(UIViewController *)toVC
+{
+    PLSlideTransition *transition = [PLSlideTransition new];
+    transition.operation = operation;
+    return transition;
+}
+
+
+-(void)presentContainedViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)animated
+{
+    if (viewControllerToPresent == nil)
+    {
+        [_currentController willMoveToParentViewController:nil];
+        [_currentController.view removeFromSuperview];
+        [_currentController removeFromParentViewController];
+        _currentController = nil;
+        return;
+    }
+    
+    
+    [self addChildViewController:viewControllerToPresent];
+    [_currentController willMoveToParentViewController:nil];
+    
+    viewControllerToPresent.view.frame = self.view.bounds;
+    viewControllerToPresent.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    if (animated)
+    {
+        viewControllerToPresent.view.alpha = 0.0f;
+        
+        [self transitionFromViewController:_currentController toViewController:viewControllerToPresent duration:0.3f options:0
+                                animations:^
+         {
+             _currentController.view.alpha = 0.0f;
+             viewControllerToPresent.view.transform = CGAffineTransformIdentity;
+             viewControllerToPresent.view.alpha = 1.0f;
+         }
+                                completion:^(BOOL finished)
+         {
+             [viewControllerToPresent didMoveToParentViewController:self];
+             [_currentController removeFromParentViewController];
+             _currentController = viewControllerToPresent;
+         }];
+    }
+    else
+    {
+        [self.view addSubview:viewControllerToPresent.view];
+        [_currentController.view removeFromSuperview];
+        [_currentController removeFromParentViewController];
+        [viewControllerToPresent didMoveToParentViewController:self];
+        _currentController = viewControllerToPresent;
+    }
+}
+
 
 @end

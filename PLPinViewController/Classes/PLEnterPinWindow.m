@@ -7,24 +7,86 @@
 //
 
 #import "PLEnterPinWindow.h"
+#import "PLPinViewController.h"
 
+@interface PLEnterPinWindow ()
+
+@end
 
 @implementation PLEnterPinWindow
 
-+ (instancetype)pinWindow
-{
-    PLEnterPinWindow *pinWindow = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EnterPin" bundle:nil];
-    pinWindow.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"enterPinRootController"];
-    pinWindow.hidden = NO;
-    return pinWindow;
++ (instancetype)defaultInstance {
+    static PLEnterPinWindow *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        
+        NSBundle *podBundle = [NSBundle bundleForClass:[self class]];
+        NSURL *bundleUrl = [podBundle URLForResource:@"PLPinViewController" withExtension:@"bundle"];
+        NSBundle *bundle = [NSBundle bundleWithURL:bundleUrl];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PLPinViewController" bundle:bundle];
+
+        PLPinViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PLPinViewController"];
+        sharedInstance.rootViewController = vc;
+
+    });
+    return sharedInstance;
 }
 
 -(void)dealloc
 {
     NSLog(@"dealloc pin windows");
 }
-// add some methods for aniation here?
+
+-(void)showAnimated:(BOOL)animated
+{
+    if (animated)
+    {
+        self.alpha = 0.0;
+        self.hidden = NO;
+        [self.window makeKeyAndVisible];
+        [UIView animateWithDuration:0.4 animations:^{
+            self.alpha = 1.0;
+        } completion:^(BOOL finished) {
+            // do anything here?
+        }];
+    }
+    else
+    {
+        self.alpha = 1.0;
+        self.hidden = NO;
+        [self makeKeyAndVisible];
+    }
+}
+
+-(void)hideAnimated:(BOOL)animated
+{
+    // need to find the main window of the app delegate
+    if (animated)
+    {
+        [UIView animateWithDuration:0.4 animations:^{
+            self.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            // get the original window.. (bit of an assumption)
+            [[[[UIApplication sharedApplication] windows] objectAtIndex:0] makeKeyAndVisible];
+
+            self.hidden = YES;
+            
+            PLPinViewController *vc = (PLPinViewController*)self.rootViewController;
+            [vc presentContainedViewController:nil animated:NO];
+        }];
+    }
+    else
+    {
+        self.alpha = 0.0;
+        self.hidden = YES;
+        // get the original window.. (bit of an assumption)
+        [[[[UIApplication sharedApplication] windows] objectAtIndex:0] makeKeyAndVisible];
+        
+        PLPinViewController *vc = (PLPinViewController*)self.rootViewController;
+        [vc presentContainedViewController:nil animated:NO];
+    }
+}
+
 
 @end
