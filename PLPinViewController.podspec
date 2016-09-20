@@ -34,7 +34,7 @@ s.resource_bundles = {
 'PLPinViewController' => ['PLPinViewController/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png}']
 }
 
-s.public_header_files = 'Pod/Classes/**/*.h'
+s.public_header_files = 'PLPinViewController/Classes/**/*.h'
 s.dependency 'PureLayout'
 s.dependency 'PLForm'
 end
