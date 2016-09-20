@@ -58,7 +58,7 @@
         PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
         if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didSetPin:)])
         {
-            [vc.pinDelegate pinViewController:self didSetPin:pinElement.value];
+            [vc.pinDelegate pinViewController:vc didSetPin:pinElement.value];
         }
     }
     else

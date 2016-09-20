@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, PLPinViewControllerAction) {
 
 @property (nonatomic, strong, readonly) UIViewController *currentController;
 @property (weak) id<PLPinViewControllerDelegate> pinDelegate;
-@property (nonatomic, assign) BOOL *enableCancel;
+@property (nonatomic, assign) BOOL enableCancel;
 
 + (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated;
 +(void)dismiss;

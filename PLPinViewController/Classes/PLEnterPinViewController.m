@@ -67,7 +67,7 @@
     PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:shouldAcceptPin:)])
     {
-        if ([vc.pinDelegate pinViewController:self shouldAcceptPin:pinElement.value])
+        if ([vc.pinDelegate pinViewController:vc shouldAcceptPin:pinElement.value])
         {
             [self correctPin];
         }
@@ -83,7 +83,7 @@
     PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didEnterPin:)])
     {
-        [vc.pinDelegate pinViewController:self didEnterPin:pinElement.value];
+        [vc.pinDelegate pinViewController:vc didEnterPin:pinElement.value];
     }
 }
 
@@ -131,7 +131,7 @@
     [self.view endEditing:YES];
     
     PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
-    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidCancel::)])
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidCancel:)])
     {
         [vc.pinDelegate pinViewControllerDidCancel:vc];
     }
