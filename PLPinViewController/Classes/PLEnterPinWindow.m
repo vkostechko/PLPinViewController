@@ -20,11 +20,18 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        
-        NSBundle *podBundle = [NSBundle bundleForClass:[self class]];
-        NSURL *bundleUrl = [podBundle URLForResource:@"PLPinViewController" withExtension:@"bundle"];
-        NSBundle *bundle = [NSBundle bundleWithURL:bundleUrl];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PLPinViewController" bundle:bundle];
+
+        // attempt to load from main bundle so host app can override
+        UIStoryboard *storyboard = nil;
+        @try {
+            storyboard = [UIStoryboard storyboardWithName:@"PLPinViewController" bundle:nil];
+        }
+        @catch (NSException *exception) {
+            NSBundle *podBundle = [NSBundle bundleForClass:[self class]];
+            NSURL *bundleUrl = [podBundle URLForResource:@"PLPinViewController" withExtension:@"bundle"];
+            NSBundle *bundle = [NSBundle bundleWithURL:bundleUrl];
+            storyboard = [UIStoryboard storyboardWithName:@"PLPinViewController" bundle:bundle];
+        }
 
         PLPinViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PLPinViewController"];
         sharedInstance.rootViewController = vc;
