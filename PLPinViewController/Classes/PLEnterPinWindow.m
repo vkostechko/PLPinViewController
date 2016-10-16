@@ -21,7 +21,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+        sharedInstance.pinAppearance = [PLPinAppearance defaultAppearance];
+        
         // attempt to load from main bundle so host app can override
         UIStoryboard *storyboard = nil;
         @try {

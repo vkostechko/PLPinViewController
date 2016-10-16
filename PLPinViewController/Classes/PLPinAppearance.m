@@ -26,13 +26,12 @@
 
 -(void)setupDefaultAppearance {
     UIColor *defaultColor = [UIColor colorWithRed:46.0f / 255.0f green:192.0f / 255.0f blue:197.0f / 255.0f alpha:1];
-    UIFont *defaultFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:27.0f];
+    UIFont *defaultFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:24.0f];
     
     self.numberButtonColor = defaultColor;
     self.numberButtonTitleColor = [UIColor blackColor];
     self.numberButtonStrokeColor = defaultColor;
     self.numberButtonStrokeWitdh = 0.8f;
-    self.numberButtonstrokeEnabled = YES;
     self.numberButtonFont = defaultFont;
     
     self.deleteButtonColor = defaultColor;

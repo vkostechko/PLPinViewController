@@ -15,15 +15,17 @@
 #import "PLStyleButton.h"
 #import "PLPinAppearance.h"
 
+#define IS_SHORTSCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 
 @interface PLPinViewController () <UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *inputView;
 @property (strong, nonatomic) IBOutletCollection(PLStyleButton) NSArray *numberButtons;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (nonatomic,strong) NSString *lastIdentifier;
 @property (nonatomic,strong) NSString *initialIdentifier;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *keypadHeightConstraint;
 
 @end
 
@@ -65,12 +67,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    for (PLStyleButton *button in self.numberButtons)
-    {
-        button.borderColor = [UIColor blackColor];
-        button.borderWidth = 0.5f;
-    }
+    [self setupAppearance];
 
     if (self.initialIdentifier)
     {
@@ -79,7 +76,6 @@
     }
 
     [self performSegueWithIdentifier:@"showEnterPin" sender:nil];
-    
 }
 
 -(void)viewDidLayoutSubviews
@@ -87,6 +83,35 @@
     for (PLStyleButton *button in self.numberButtons)
     {
         button.cornerRadius = button.bounds.size.width / 2.0f;
+    }
+
+}
+
+-(void)setupAppearance
+{
+    PLPinAppearance *appearance = [PLEnterPinWindow defaultInstance].pinAppearance;
+    for (PLStyleButton *button in self.numberButtons)
+    {
+        [button setTintColor:appearance.numberButtonColor];
+        [button setTitleColor:appearance.numberButtonTitleColor forState:UIControlStateNormal];
+        [button setTitleColor:appearance.numberButtonTitleColor forState:UIControlStateSelected];
+        [button setTitleColor:appearance.numberButtonTitleColor forState:UIControlStateHighlighted];
+        
+        [button.titleLabel setFont:appearance.numberButtonFont];
+        button.borderColor = [PLEnterPinWindow defaultInstance].pinAppearance.numberButtonStrokeColor;
+        button.borderWidth = [PLEnterPinWindow defaultInstance].pinAppearance.numberButtonStrokeWitdh;
+        [button setNeedsDisplay];
+    }
+    
+    [self.deleteButton setTintColor:appearance.deleteButtonColor];
+
+    if (IS_SHORTSCREEN)
+    {
+        self.keypadHeightConstraint.constant = 160;
+    }
+    else
+    {
+        self.keypadHeightConstraint.constant = 240;
     }
 }
 

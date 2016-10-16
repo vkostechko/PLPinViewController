@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *illustration;
 @property (weak, nonatomic) IBOutlet UIView *errorView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 @end
 
@@ -45,6 +47,7 @@
     self.cancelButton.hidden = !vc.enableCancel;
     
     self.pinField.textfield.inputView = [UIView new];
+    [self setupAppearance];
 }
 
 -(void)dealloc
@@ -74,6 +77,7 @@
 -(void)setupAppearance
 {
     self.view.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.errorView.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
 }
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;

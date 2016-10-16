@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UIColor *numberButtonTitleColor;
 @property (nonatomic, strong) UIColor *numberButtonStrokeColor;
 @property (nonatomic, assign) CGFloat numberButtonStrokeWitdh;
-@property (nonatomic, assign) BOOL numberButtonstrokeEnabled;
 @property (nonatomic, strong) UIFont *numberButtonFont;
 
 @property (nonatomic, strong) UIColor *deleteButtonColor;
