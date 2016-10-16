@@ -24,7 +24,7 @@
     // configure the appearance
     PLPinAppearance *pinAppearance = [PLPinAppearance defaultAppearance];
     pinAppearance.backgroundColor = [UIColor lightGrayColor];
-    [PLEnterPinWindow defaultInstance].pinAppearance = pinAppearance;
+    [PLPinWindow defaultInstance].pinAppearance = pinAppearance;
 }
 
 - (void)didReceiveMemoryWarning

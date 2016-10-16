@@ -9,7 +9,7 @@
 #import "PLCreatePinViewController.h"
 #import "PLFormPinField.h"
 #import "PLPinAppearance.h"
-#import "PLEnterPinWindow.h"
+#import "PLPinWindow.h"
 
 @import PLForm;
 
@@ -65,11 +65,11 @@
 
 -(void)setupAppearance
 {
-    self.view.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
-    self.titleLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.titleFont;
-    self.titleLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.titleColor;
-    self.messageLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.messageFont;
-    self.messageLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.messageColor;
+    self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
+    self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
+    self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
+    self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

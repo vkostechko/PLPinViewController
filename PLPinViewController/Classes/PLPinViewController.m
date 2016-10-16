@@ -9,7 +9,7 @@
 #import "PLPinViewController.h"
 #import "PLCreatePinViewController.h"
 #import "PLEnterPinViewController.h"
-#import "PLEnterPinWindow.h"
+#import "PLPinWindow.h"
 #import "PLSlideTransition.h"
 #import "PLFormPinField.h"
 #import "PLStyleButton.h"
@@ -33,7 +33,7 @@
 
 + (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
 {
-    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     vc.pinDelegate = delegate;
     vc.enableCancel = enableCancel;
 
@@ -56,12 +56,12 @@
     {
         [vc performSegueWithIdentifier:vc.initialIdentifier sender:nil];
     }
-    [[PLEnterPinWindow defaultInstance] showAnimated:animated];
+    [[PLPinWindow defaultInstance] showAnimated:animated];
 }
 
 +(void)dismiss
 {
-    [[PLEnterPinWindow defaultInstance] hideAnimated:YES];
+    [[PLPinWindow defaultInstance] hideAnimated:YES];
 }
 
 - (void)viewDidLoad {
@@ -89,7 +89,7 @@
 
 -(void)setupAppearance
 {
-    PLPinAppearance *appearance = [PLEnterPinWindow defaultInstance].pinAppearance;
+    PLPinAppearance *appearance = [PLPinWindow defaultInstance].pinAppearance;
     for (PLStyleButton *button in self.numberButtons)
     {
         [button setTintColor:appearance.numberButtonColor];
@@ -98,8 +98,8 @@
         [button setTitleColor:appearance.numberButtonTitleColor forState:UIControlStateHighlighted];
         
         [button.titleLabel setFont:appearance.numberButtonFont];
-        button.borderColor = [PLEnterPinWindow defaultInstance].pinAppearance.numberButtonStrokeColor;
-        button.borderWidth = [PLEnterPinWindow defaultInstance].pinAppearance.numberButtonStrokeWitdh;
+        button.borderColor = [PLPinWindow defaultInstance].pinAppearance.numberButtonStrokeColor;
+        button.borderWidth = [PLPinWindow defaultInstance].pinAppearance.numberButtonStrokeWitdh;
         [button setNeedsDisplay];
     }
     

@@ -9,7 +9,7 @@
 #import "PLConfirmPinViewController.h"
 #import "PLFormPinField.h"
 #import "PLPinViewController.h"
-#import "PLEnterPinWindow.h"
+#import "PLPinWindow.h"
 #import "PLPinAppearance.h"
 
 @import PLForm;
@@ -51,10 +51,10 @@
 -(void)popBack
 {
     [self performSegueWithIdentifier:@"unwindToCreatPin" sender:nil];
-    self.titleLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.titleFont;
-    self.titleLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.titleColor;
-    self.messageLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.messageFont;
-    self.messageLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.messageColor;
+    self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
+    self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
+    self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
+    self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -77,14 +77,14 @@
 
 -(void)setupAppearance
 {
-    self.view.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
 }
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;
 {
     if ([pinElement.value isEqualToString:self.pin] )
     {
-        PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+        PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
         if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didSetPin:)])
         {
             [vc.pinDelegate pinViewController:vc didSetPin:pinElement.value];

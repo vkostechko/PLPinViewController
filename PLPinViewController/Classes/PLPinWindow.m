@@ -1,23 +1,23 @@
 //
-//  PLEnterPinWindow.m
+//  PLPinWindow.m
 //  PLPinViewController
 //
 //  Created by Ash Thwaites on 09/17/2016.
 //  Copyright (c) 2016 Ash Thwaites. All rights reserved.
 //
 
-#import "PLEnterPinWindow.h"
+#import "PLPinWindow.h"
 #import "PLPinViewController.h"
 #import "PLPinAppearance.h"
 
-@interface PLEnterPinWindow ()
+@interface PLPinWindow ()
 
 @end
 
-@implementation PLEnterPinWindow
+@implementation PLPinWindow
 
 + (instancetype)defaultInstance {
-    static PLEnterPinWindow *sharedInstance = nil;
+    static PLPinWindow *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

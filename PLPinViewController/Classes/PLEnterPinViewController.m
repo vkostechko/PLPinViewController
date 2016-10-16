@@ -9,7 +9,7 @@
 #import "PLEnterPinViewController.h"
 #import "PLFormPinField.h"
 #import "PLPinViewController.h"
-#import "PLEnterPinWindow.h"
+#import "PLPinWindow.h"
 #import "PLPinAppearance.h"
 
 
@@ -43,7 +43,7 @@
     self.illustration.hidden = (result.height == 480);
     self.errorView.alpha = 0.0f;
     
-    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     self.cancelButton.hidden = !vc.enableCancel;
     
     self.pinField.textfield.inputView = [UIView new];
@@ -76,17 +76,17 @@
 
 -(void)setupAppearance
 {
-    self.view.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
-    self.errorView.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
-    self.titleLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.titleFont;
-    self.titleLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.titleColor;
-    self.messageLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.messageFont;
-    self.messageLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.messageColor;
+    self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.errorView.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
+    self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
+    self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
+    self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;
 {
-    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:shouldAcceptPin:)])
     {
         if ([vc.pinDelegate pinViewController:vc shouldAcceptPin:pinElement.value])
@@ -102,7 +102,7 @@
 
 -(void)correctPin
 {
-    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didEnterPin:)])
     {
         [vc.pinDelegate pinViewController:vc didEnterPin:pinElement.value];
@@ -141,7 +141,7 @@
     
     [self.view endEditing:YES];
     
-    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidLogout:)])
     {
         [vc.pinDelegate pinViewControllerDidLogout:vc];
@@ -152,7 +152,7 @@
     
     [self.view endEditing:YES];
     
-    PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidCancel:)])
     {
         [vc.pinDelegate pinViewControllerDidCancel:vc];

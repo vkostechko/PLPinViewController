@@ -1,5 +1,5 @@
 //
-//  PLEnterPinWindow.h
+//  PLPinWindow.h
 //  PLPinViewController
 //
 //  Created by Ash Thwaites on 09/17/2016.
@@ -10,7 +10,7 @@
 
 @class PLPinAppearance;
 
-@interface PLEnterPinWindow : UIWindow
+@interface PLPinWindow : UIWindow
 
 + (instancetype)defaultInstance;
 
