@@ -257,11 +257,11 @@
     for (UIView *subView in view.subviews)
     {
         if ([subView isKindOfClass:[PLFormPinField class]])
-            return subView;
+            return (PLFormPinField*)subView;
         
         if (subView.subviews.count)
         {
-            UITextField *tf = [self firstPinFieldInView:subView];
+            PLFormPinField *tf = [self firstPinFieldInView:subView];
             if (tf) return tf;
         }
     }
