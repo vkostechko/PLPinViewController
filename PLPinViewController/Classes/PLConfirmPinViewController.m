@@ -10,6 +10,7 @@
 #import "PLFormPinField.h"
 #import "PLPinViewController.h"
 #import "PLEnterPinWindow.h"
+#import "PLPinAppearance.h"
 
 @import PLForm;
 
@@ -19,6 +20,8 @@
 }
 @property (weak, nonatomic) IBOutlet PLFormPinField *pinField;
 @property (weak, nonatomic) IBOutlet UIImageView *illustration;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 @end
 
@@ -40,12 +43,18 @@
 
     self.pinField.textfield.inputView = [UIView new];
 
+    [self setupAppearance];
+
 //    self.navigationItem.leftBarButtonItem = [UIBarButtonItem yvp_backBarButtonItemWithTarget:self action:@selector(popBack)];
 }
 
 -(void)popBack
 {
     [self performSegueWithIdentifier:@"unwindToCreatPin" sender:nil];
+    self.titleLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.titleFont;
+    self.titleLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.titleColor;
+    self.messageLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.messageFont;
+    self.messageLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -64,6 +73,11 @@
 {
     [super viewWillDisappear:animated];
     [self.pinField resignFirstResponder];
+}
+
+-(void)setupAppearance
+{
+    self.view.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
 }
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;

@@ -22,9 +22,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     // configure the appearance
-//    PLPinAppearance *pinAppearance = [PLPinAppearance defaultAppearance];
-//    pinAppearance.backgroundColor = [UIColor lightGrayColor];
-//    [PLEnterPinWindow defaultInstance].pinAppearance = pinAppearance;
+    PLPinAppearance *pinAppearance = [PLPinAppearance defaultAppearance];
+    pinAppearance.backgroundColor = [UIColor lightGrayColor];
+    [PLEnterPinWindow defaultInstance].pinAppearance = pinAppearance;
 }
 
 - (void)didReceiveMemoryWarning

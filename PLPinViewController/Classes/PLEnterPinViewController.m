@@ -78,6 +78,10 @@
 {
     self.view.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
     self.errorView.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.titleLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.titleFont;
+    self.titleLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.titleColor;
+    self.messageLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.messageFont;
+    self.messageLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;

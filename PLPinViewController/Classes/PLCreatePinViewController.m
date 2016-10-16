@@ -8,6 +8,8 @@
 
 #import "PLCreatePinViewController.h"
 #import "PLFormPinField.h"
+#import "PLPinAppearance.h"
+#import "PLEnterPinWindow.h"
 
 @import PLForm;
 
@@ -19,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet PLFormPinField *pinField;
 @property (weak, nonatomic) IBOutlet UIImageView *illustration;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 @end
 
@@ -38,6 +42,7 @@
     self.errorLabel.alpha = 0;
     
     self.pinField.textfield.inputView = [UIView new];
+    [self setupAppearance];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -58,6 +63,14 @@
 //    [self.pinField resignFirstResponder];
 }
 
+-(void)setupAppearance
+{
+    self.view.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.titleLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.titleFont;
+    self.titleLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.titleColor;
+    self.messageLabel.font = [PLEnterPinWindow defaultInstance].pinAppearance.messageFont;
+    self.messageLabel.textColor = [PLEnterPinWindow defaultInstance].pinAppearance.messageColor;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
