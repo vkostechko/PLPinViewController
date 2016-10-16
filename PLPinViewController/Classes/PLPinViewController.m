@@ -11,10 +11,16 @@
 #import "PLEnterPinViewController.h"
 #import "PLEnterPinWindow.h"
 #import "PLSlideTransition.h"
+#import "PLFormPinField.h"
+#import "PLStyleButton.h"
+#import "PLPinAppearance.h"
+
 
 @interface PLPinViewController () <UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIView *inputView;
+@property (strong, nonatomic) IBOutletCollection(PLStyleButton) NSArray *numberButtons;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (nonatomic,strong) NSString *lastIdentifier;
 @property (nonatomic,strong) NSString *initialIdentifier;
@@ -60,6 +66,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    for (PLStyleButton *button in self.numberButtons)
+    {
+        button.borderColor = [UIColor blackColor];
+        button.borderWidth = 0.5f;
+    }
+
     if (self.initialIdentifier)
     {
         [self performSegueWithIdentifier:self.initialIdentifier sender:nil];
@@ -67,6 +79,15 @@
     }
 
     [self performSegueWithIdentifier:@"showEnterPin" sender:nil];
+    
+}
+
+-(void)viewDidLayoutSubviews
+{
+    for (PLStyleButton *button in self.numberButtons)
+    {
+        button.cornerRadius = button.bounds.size.width / 2.0f;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +107,14 @@
     }
 }
 
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
+{
+}
 
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
+{
+    
+}
 - (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
                                                 fromViewController:(UIViewController *)fromVC
@@ -137,7 +165,8 @@
     else
     {
         [self.view addSubview:viewControllerToPresent.view];
-        [self.view bringSubviewToFront:self.cancelButton];
+        [self.view bringSubviewToFront:self.inputView];
+
         [_currentController.view removeFromSuperview];
         [_currentController removeFromParentViewController];
         [viewControllerToPresent didMoveToParentViewController:self];
@@ -145,5 +174,62 @@
     }
 }
 
+- (IBAction)numberButtonPressed:(UIButton*)sender {
+    NSString *input = @(sender.tag).stringValue;
 
+    UIViewController *vc = _currentController;
+    if ([_currentController isKindOfClass:[UINavigationController class]])
+    {
+        vc = ((UINavigationController*)_currentController).topViewController;
+    }
+    PLFormPinField *pinField = [self firstPinFieldInView:vc.view];
+    if (pinField)
+    {
+        NSString *text = pinField.textfield.text;
+        NSRange insertRange = NSMakeRange(0, 0);
+        if (text.length > 0)
+        {
+            insertRange = NSMakeRange(text.length, 0);
+        }
+                
+        [pinField.textfield.delegate textField:pinField.textfield shouldChangeCharactersInRange:insertRange replacementString:input];
+    }
+}
+
+- (IBAction)deleteButtonPressed:(id)sender {
+    UIViewController *vc = _currentController;
+    if ([_currentController isKindOfClass:[UINavigationController class]])
+    {
+        vc = ((UINavigationController*)_currentController).topViewController;
+    }
+    PLFormPinField *pinField = [self firstPinFieldInView:vc.view];
+    if (pinField)
+    {
+        NSString *text = pinField.textfield.text;
+        NSRange deleteRange = NSMakeRange(0, 0);
+        if (text.length > 0)
+        {
+            deleteRange = NSMakeRange(text.length - 1, 1);
+        }
+        [pinField.textfield.delegate textField:pinField.textfield shouldChangeCharactersInRange:deleteRange replacementString:@""];
+    }
+}
+
+
+//
+-(PLFormPinField*)firstPinFieldInView:(UIView*)view
+{
+    for (UIView *subView in view.subviews)
+    {
+        if ([subView isKindOfClass:[PLFormPinField class]])
+            return subView;
+        
+        if (subView.subviews.count)
+        {
+            UITextField *tf = [self firstPinFieldInView:subView];
+            if (tf) return tf;
+        }
+    }
+    return nil;
+}
 @end

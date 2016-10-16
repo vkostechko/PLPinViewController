@@ -37,7 +37,9 @@
     
     CGSize result = [[UIScreen mainScreen] bounds].size;
     self.illustration.hidden = (result.height == 480);
-    
+
+    self.pinField.textfield.inputView = [UIView new];
+
 //    self.navigationItem.leftBarButtonItem = [UIBarButtonItem yvp_backBarButtonItemWithTarget:self action:@selector(popBack)];
 }
 
@@ -49,6 +51,19 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+//    [self.pinField becomeFirstResponder];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.pinField becomeFirstResponder];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.pinField resignFirstResponder];
 }
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;

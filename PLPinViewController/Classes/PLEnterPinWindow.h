@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class PLPinAppearance;
+
 @interface PLEnterPinWindow : UIWindow
 
 + (instancetype)defaultInstance;
+
+@property (nonatomic, strong) PLPinAppearance *pinAppearance;
 
 -(void)showAnimated:(BOOL)animated;
 -(void)hideAnimated:(BOOL)animated;

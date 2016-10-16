@@ -8,6 +8,8 @@
 
 #import "PLExampleViewController.h"
 
+@import PLPinViewController;
+
 @interface PLExampleViewController ()   
 
 @end
@@ -18,6 +20,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // configure the appearance
+    PLPinAppearance *pinAppearance = [PLPinAppearance defaultAppearance];
 }
 
 - (void)didReceiveMemoryWarning

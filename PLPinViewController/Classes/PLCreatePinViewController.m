@@ -33,18 +33,29 @@
     pinElement.dotSize = 10;
     [self.pinField updateWithElement:pinElement];
     
-    [self.pinField becomeFirstResponder];
-    
     CGSize result = [[UIScreen mainScreen] bounds].size;
     self.illustration.hidden = (result.height == 480);
     self.errorLabel.alpha = 0;
     
-//    self.disablesAutomaticKeyboardDismissal = YES; // ios10
+    self.pinField.textfield.inputView = [UIView new];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.pinField becomeFirstResponder];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.pinField becomeFirstResponder];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+//    [self.pinField resignFirstResponder];
 }
 
 

@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, PLPinViewControllerAction) {
 };
 
 @class PLPinViewController;
+@class PLPinAppearance;
 
 @protocol PLPinViewControllerDelegate <NSObject>
 

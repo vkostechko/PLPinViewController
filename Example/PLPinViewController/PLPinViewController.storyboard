@@ -25,11 +25,16 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2MZ-8W-Uqj">
                                 <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="Q9H-fs-AgY">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="133" id="ZfQ-un-CAE" customClass="PLVerticalScaleConstraint"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME BACK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WN-Lg-XrT" customClass="YPAttributedLabel">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="TKq-Us-Iz5"/>
+                                            <constraint firstAttribute="height" constant="35" id="TKq-Us-Iz5"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                         <color key="textColor" red="0.11764705882352941" green="0.68627450980392157" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -84,7 +89,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="tiS-xr-dCz"/>
+                                    <constraint firstAttribute="height" constant="265" id="tiS-xr-dCz"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-U9-ldE">
@@ -156,6 +161,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="2nd-JA-8fw" id="YYu-Kh-ash"/>
                         <outlet property="errorView" destination="y1M-Uf-Uik" id="GTl-yc-Uxl"/>
+                        <outlet property="illustration" destination="Q9H-fs-AgY" id="j8w-3c-evA"/>
                         <outlet property="pinField" destination="Em4-62-nHK" id="1lL-1H-URo"/>
                     </connections>
                 </viewController>
@@ -174,209 +180,9 @@
                     <view key="view" contentMode="scaleToFill" id="fuZ-2C-aDM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKM-gJ-JAg" customClass="PLInputView">
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10q-D6-8w9">
-                                        <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-EU-joB" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="1">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="DCr-1D-y6w"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnU-OB-fLg" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="2">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="Suo-sY-pW9"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQP-Pj-Wyn" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="3">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="gcp-Hm-VQk"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bG-Ic-5lT" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="4">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="X2j-Pr-hLn"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9j-UX-nqA" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="6">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="jHS-6E-ziY"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0P5-Tv-ZuH" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="7">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="hdi-c8-X5Q"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1K-Ff-axV" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="8">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="aBp-wf-i7R"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbO-F3-tBw" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="9">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="QLE-h8-O0J"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz3-Ri-q3x" customClass="PLPinButton">
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                                <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="5">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="qWp-5s-7xV"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="SQP-Pj-Wyn" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="63d-hW-46J"/>
-                                            <constraint firstAttribute="bottom" secondItem="lbO-F3-tBw" secondAttribute="bottom" id="6F1-ua-emQ"/>
-                                            <constraint firstItem="cnU-OB-fLg" firstAttribute="leading" secondItem="xf5-EU-joB" secondAttribute="trailing" constant="15" id="6zq-DT-iwL"/>
-                                            <constraint firstItem="cnU-OB-fLg" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="EDk-49-Oo9"/>
-                                            <constraint firstItem="j9j-UX-nqA" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="GA9-zF-thp"/>
-                                            <constraint firstItem="b1K-Ff-axV" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="HKi-uC-esV"/>
-                                            <constraint firstItem="7bG-Ic-5lT" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="I4E-ra-Vck"/>
-                                            <constraint firstItem="Zz3-Ri-q3x" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="K6y-4d-6Hl"/>
-                                            <constraint firstItem="cnU-OB-fLg" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="KIR-sh-qpu"/>
-                                            <constraint firstItem="SQP-Pj-Wyn" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="Mfo-rJ-hyO"/>
-                                            <constraint firstAttribute="trailing" secondItem="SQP-Pj-Wyn" secondAttribute="trailing" id="Mkk-vk-gk5"/>
-                                            <constraint firstAttribute="bottom" secondItem="b1K-Ff-axV" secondAttribute="bottom" id="N5o-EF-YTF"/>
-                                            <constraint firstItem="0P5-Tv-ZuH" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="NhA-Bn-kvn"/>
-                                            <constraint firstItem="cnU-OB-fLg" firstAttribute="top" secondItem="10q-D6-8w9" secondAttribute="top" id="Nni-Hf-zIL"/>
-                                            <constraint firstItem="0P5-Tv-ZuH" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="SsU-Ie-n8J"/>
-                                            <constraint firstItem="lbO-F3-tBw" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="TwI-hG-DrP"/>
-                                            <constraint firstItem="7bG-Ic-5lT" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="Uci-BY-XKl"/>
-                                            <constraint firstItem="xf5-EU-joB" firstAttribute="top" secondItem="10q-D6-8w9" secondAttribute="top" id="Uhv-2e-Tja"/>
-                                            <constraint firstItem="j9j-UX-nqA" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="Va0-Kj-XTC"/>
-                                            <constraint firstAttribute="width" constant="240" id="XQf-Tt-7aM"/>
-                                            <constraint firstItem="j9j-UX-nqA" firstAttribute="top" secondItem="SQP-Pj-Wyn" secondAttribute="bottom" constant="15" id="XaN-Eh-2Po"/>
-                                            <constraint firstItem="Zz3-Ri-q3x" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="YD5-OF-Nuc"/>
-                                            <constraint firstItem="0P5-Tv-ZuH" firstAttribute="top" secondItem="7bG-Ic-5lT" secondAttribute="bottom" constant="15" id="aEd-Kb-N0h"/>
-                                            <constraint firstItem="SQP-Pj-Wyn" firstAttribute="leading" secondItem="cnU-OB-fLg" secondAttribute="trailing" constant="15" id="aXj-Dr-2fR"/>
-                                            <constraint firstAttribute="bottom" secondItem="0P5-Tv-ZuH" secondAttribute="bottom" id="dcu-qB-POS"/>
-                                            <constraint firstItem="7bG-Ic-5lT" firstAttribute="leading" secondItem="10q-D6-8w9" secondAttribute="leading" id="hIk-Pc-Ttf"/>
-                                            <constraint firstItem="b1K-Ff-axV" firstAttribute="top" secondItem="Zz3-Ri-q3x" secondAttribute="bottom" constant="15" id="hRn-Hb-XWO"/>
-                                            <constraint firstItem="lbO-F3-tBw" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="iEh-C6-pba"/>
-                                            <constraint firstItem="Zz3-Ri-q3x" firstAttribute="top" secondItem="cnU-OB-fLg" secondAttribute="bottom" constant="15" id="idp-oZ-Jkd"/>
-                                            <constraint firstAttribute="trailing" secondItem="lbO-F3-tBw" secondAttribute="trailing" id="jGE-lt-WxJ"/>
-                                            <constraint firstItem="xf5-EU-joB" firstAttribute="leading" secondItem="10q-D6-8w9" secondAttribute="leading" id="mhJ-sM-KuC"/>
-                                            <constraint firstItem="7bG-Ic-5lT" firstAttribute="top" secondItem="xf5-EU-joB" secondAttribute="bottom" constant="15" id="mpb-Mw-Gze"/>
-                                            <constraint firstItem="lbO-F3-tBw" firstAttribute="leading" secondItem="b1K-Ff-axV" secondAttribute="trailing" constant="15" id="nHK-vI-ost"/>
-                                            <constraint firstItem="0P5-Tv-ZuH" firstAttribute="leading" secondItem="10q-D6-8w9" secondAttribute="leading" id="oPF-2s-XXX"/>
-                                            <constraint firstItem="j9j-UX-nqA" firstAttribute="leading" secondItem="Zz3-Ri-q3x" secondAttribute="trailing" constant="15" id="qTl-0f-Off"/>
-                                            <constraint firstItem="b1K-Ff-axV" firstAttribute="leading" secondItem="0P5-Tv-ZuH" secondAttribute="trailing" constant="15" id="rzT-Yp-6K7"/>
-                                            <constraint firstAttribute="trailing" secondItem="j9j-UX-nqA" secondAttribute="trailing" id="sO9-1J-2HX"/>
-                                            <constraint firstAttribute="height" constant="240" id="sfH-JT-QRc"/>
-                                            <constraint firstItem="Zz3-Ri-q3x" firstAttribute="leading" secondItem="7bG-Ic-5lT" secondAttribute="trailing" constant="15" id="uJ5-Sr-L7V"/>
-                                            <constraint firstItem="SQP-Pj-Wyn" firstAttribute="top" secondItem="10q-D6-8w9" secondAttribute="top" id="vVH-Op-cOu"/>
-                                            <constraint firstItem="b1K-Ff-axV" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="ykW-gf-8rg"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebQ-KZ-Vxj" customClass="PLPinButton">
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                        <color key="tintColor" red="0.99134224650000002" green="0.56141203640000004" blue="0.1918220222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="0">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="0E3-wx-XSa"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i74-eQ-iX8">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="pl_img_delete"/>
-                                        <connections>
-                                            <action selector="deleteButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="4RB-Rv-iIB"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="ebQ-KZ-Vxj" firstAttribute="centerX" secondItem="JKM-gJ-JAg" secondAttribute="centerX" id="1UO-BR-r1p"/>
-                                    <constraint firstItem="ebQ-KZ-Vxj" firstAttribute="top" secondItem="10q-D6-8w9" secondAttribute="bottom" constant="15" id="1q7-II-HLl"/>
-                                    <constraint firstItem="ebQ-KZ-Vxj" firstAttribute="width" secondItem="xf5-EU-joB" secondAttribute="width" id="Fg9-Rf-HcD"/>
-                                    <constraint firstItem="10q-D6-8w9" firstAttribute="centerX" secondItem="JKM-gJ-JAg" secondAttribute="centerX" id="TtS-m7-6DU"/>
-                                    <constraint firstItem="ebQ-KZ-Vxj" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="cmF-OP-I3m"/>
-                                    <constraint firstItem="i74-eQ-iX8" firstAttribute="top" secondItem="10q-D6-8w9" secondAttribute="bottom" constant="30" id="fUe-rn-Pv9"/>
-                                    <constraint firstItem="i74-eQ-iX8" firstAttribute="leading" secondItem="ebQ-KZ-Vxj" secondAttribute="trailing" constant="27" id="szN-cL-5Ii"/>
-                                    <constraint firstItem="10q-D6-8w9" firstAttribute="centerY" secondItem="JKM-gJ-JAg" secondAttribute="centerY" constant="20" id="yjI-jG-GJL"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PGr-XH-9Fh" firstAttribute="top" secondItem="JKM-gJ-JAg" secondAttribute="bottom" id="6m1-VS-Nig"/>
-                            <constraint firstItem="JKM-gJ-JAg" firstAttribute="leading" secondItem="fuZ-2C-aDM" secondAttribute="leading" id="bTs-2P-6Pr"/>
-                            <constraint firstAttribute="trailing" secondItem="JKM-gJ-JAg" secondAttribute="trailing" id="ceN-Fn-hpC"/>
-                            <constraint firstItem="JKM-gJ-JAg" firstAttribute="top" secondItem="UnV-3Q-RFZ" secondAttribute="bottom" constant="-20" id="d6F-Vs-Gql"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="i74-eQ-iX8" id="Jh3-sD-Pf1"/>
-                        <outlet property="inputView" destination="JKM-gJ-JAg" id="ozE-L3-m0e"/>
-                        <outletCollection property="numberButtons" destination="xf5-EU-joB" id="TLo-zO-zMj"/>
-                        <outletCollection property="numberButtons" destination="cnU-OB-fLg" id="F28-GU-BJz"/>
-                        <outletCollection property="numberButtons" destination="7bG-Ic-5lT" id="ytg-Zj-F7h"/>
-                        <outletCollection property="numberButtons" destination="j9j-UX-nqA" id="CgZ-2y-jbu"/>
-                        <outletCollection property="numberButtons" destination="0P5-Tv-ZuH" id="hLj-9R-a4y"/>
-                        <outletCollection property="numberButtons" destination="b1K-Ff-axV" id="J0a-l3-Ton"/>
-                        <outletCollection property="numberButtons" destination="lbO-F3-tBw" id="gtw-ts-K8l"/>
-                        <outletCollection property="numberButtons" destination="Zz3-Ri-q3x" id="gqm-eX-Txg"/>
-                        <outletCollection property="numberButtons" destination="SQP-Pj-Wyn" id="bXj-Qc-vZx"/>
-                        <outletCollection property="numberButtons" destination="ebQ-KZ-Vxj" id="vYu-aJ-9tc"/>
                         <segue destination="FTN-XV-rHC" kind="custom" identifier="showEnterPin" customClass="PLPinControllerSeque" id="KH7-5f-NHo"/>
                         <segue destination="9kk-XK-QD3" kind="custom" identifier="showCreatePin" customClass="PLPinControllerSeque" id="FT2-CD-w13"/>
                         <segue destination="Fft-NU-UZD" kind="custom" identifier="showChangePin" customClass="PLPinControllerSeque" id="NuD-iW-H4T"/>
@@ -384,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwF-IS-UEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266" y="-94"/>
+            <point key="canvasLocation" x="-266" y="-97"/>
         </scene>
         <!--Create Pin View Controller-->
         <scene sceneID="Wlq-E2-Aj2">
@@ -435,6 +241,11 @@
                                             <constraint firstItem="RHH-uY-tgg" firstAttribute="centerY" secondItem="jbc-W7-DxO" secondAttribute="centerY" id="q3z-D6-7VQ"/>
                                         </constraints>
                                     </view>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="idC-cI-CCZ">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="133" id="0es-RJ-2GI" customClass="PLVerticalScaleConstraint"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiu-0G-6HG">
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-aw-LNx" customClass="PLFormPinField">
@@ -459,7 +270,7 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="qvU-2t-9XV"/>
+                                    <constraint firstAttribute="height" constant="301" id="qvU-2t-9XV"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -482,6 +293,7 @@
                     <navigationItem key="navigationItem" id="zt9-tk-MG8"/>
                     <connections>
                         <outlet property="errorLabel" destination="AJM-yJ-uDl" id="btE-ax-u9g"/>
+                        <outlet property="illustration" destination="idC-cI-CCZ" id="h5d-9F-wVw"/>
                         <outlet property="pinField" destination="dfe-aw-LNx" id="xm6-OC-Yo7"/>
                         <segue destination="83k-cr-wIe" kind="show" identifier="advance" id="GIw-mr-CZc">
                             <nil key="action"/>
@@ -541,6 +353,20 @@
                                             <constraint firstAttribute="height" constant="60" id="m8b-JO-MUQ"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-Db-1WK">
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-Yq-f88">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="133" id="61u-LT-318" customClass="PLVerticalScaleConstraint"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="1Eh-Yq-f88" firstAttribute="centerY" secondItem="dwB-Db-1WK" secondAttribute="centerY" id="3Gf-N5-JzC"/>
+                                            <constraint firstItem="1Eh-Yq-f88" firstAttribute="centerX" secondItem="dwB-Db-1WK" secondAttribute="centerX" id="Hdz-df-NJ5"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZR-3j-Q1n">
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8G-xv-Kxh" customClass="PLFormPinField">
@@ -559,6 +385,9 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="283" id="2Xv-kc-i4z"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -579,6 +408,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="O7e-OA-3SA"/>
                     <connections>
+                        <outlet property="illustration" destination="1Eh-Yq-f88" id="7Ll-4T-ppj"/>
                         <outlet property="pinField" destination="h8G-xv-Kxh" id="ed2-d8-PWY"/>
                         <segue destination="APp-DC-Ckw" kind="unwind" identifier="unwindToCreatPin" unwindAction="unwindToCreatPin:" id="5Mm-nC-dzc"/>
                     </connections>
@@ -656,7 +486,18 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLj-8y-DHB">
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="MQL-dr-xc7">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="133" id="khJ-LR-yvw" customClass="PLVerticalScaleConstraint"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="MQL-dr-xc7" firstAttribute="centerX" secondItem="uLj-8y-DHB" secondAttribute="centerX" id="Ioo-rZ-6ht"/>
+                                            <constraint firstItem="MQL-dr-xc7" firstAttribute="centerY" secondItem="uLj-8y-DHB" secondAttribute="centerY" id="aoZ-TQ-tIu"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtW-E2-Bub">
                                         <subviews>
@@ -677,7 +518,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="mc6-ia-UFa"/>
+                                    <constraint firstAttribute="height" constant="283" id="mc6-ia-UFa"/>
                                 </constraints>
                             </stackView>
                             <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDc-Mq-HYD">
@@ -731,6 +572,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="eMR-Ch-Wxo" id="Ma1-bZ-B2l"/>
                         <outlet property="errorView" destination="jDc-Mq-HYD" id="0M7-1y-BEm"/>
+                        <outlet property="illustration" destination="MQL-dr-xc7" id="rTL-0e-bvk"/>
                         <outlet property="pinField" destination="nYH-N5-F1j" id="exS-AJ-zvO"/>
                         <segue destination="fcX-sR-Qae" kind="unwind" identifier="unwindToCreatPin" unwindAction="unwindToCreatPin:" id="FLf-II-qKD"/>
                         <segue destination="uxa-Vc-C4o" kind="show" identifier="advance" id="mlO-zN-Ovb"/>
@@ -761,7 +603,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pl_img_delete" width="39" height="28"/>
+        <image name="padlock" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mlO-zN-Ovb"/>

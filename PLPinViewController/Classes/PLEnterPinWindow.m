@@ -8,6 +8,7 @@
 
 #import "PLEnterPinWindow.h"
 #import "PLPinViewController.h"
+#import "PLPinAppearance.h"
 
 @interface PLEnterPinWindow ()
 
@@ -35,7 +36,6 @@
 
         PLPinViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PLPinViewController"];
         sharedInstance.rootViewController = vc;
-
     });
     return sharedInstance;
 }

@@ -10,6 +10,7 @@
 #import "PLFormPinField.h"
 #import "PLPinViewController.h"
 #import "PLEnterPinWindow.h"
+#import "PLPinAppearance.h"
 
 
 @import PLForm;
@@ -42,6 +43,8 @@
     
     PLPinViewController *vc = (PLPinViewController*)[PLEnterPinWindow defaultInstance].rootViewController;
     self.cancelButton.hidden = !vc.enableCancel;
+    
+    self.pinField.textfield.inputView = [UIView new];
 }
 
 -(void)dealloc
@@ -55,11 +58,22 @@
     [self.pinField becomeFirstResponder];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.pinField resignFirstResponder];
+}
+
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     pinElement.value = nil;
     [self.pinField updateWithElement:pinElement];
+}
+
+-(void)setupAppearance
+{
+    self.view.backgroundColor = [PLEnterPinWindow defaultInstance].pinAppearance.backgroundColor;
 }
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;
