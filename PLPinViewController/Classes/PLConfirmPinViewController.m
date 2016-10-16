@@ -33,7 +33,7 @@
     
     // lets hook up the element
     pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:4 delegate:self];
-    pinElement.dotSize = 10;
+    pinElement.dotSize = [PLPinWindow defaultInstance].pinAppearance.pinSize;
     [self.pinField updateWithElement:pinElement];
     
     [self.pinField becomeFirstResponder];

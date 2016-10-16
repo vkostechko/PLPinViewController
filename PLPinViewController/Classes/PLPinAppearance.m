@@ -36,11 +36,9 @@
     
     self.deleteButtonColor = defaultColor;
     
-    self.pinFillColor = [UIColor clearColor];
+    self.pinFillColor = [UIColor blackColor];
     self.pinHighlightedColor = defaultColor;
-    self.pinStrokeColor = defaultColor;
-    self.pinStrokeWidth = 0.8f;
-    self.pinSize = CGSizeMake(14.0f, 14.0f);
+    self.pinSize = 20;
 
     self.backgroundColor = [UIColor whiteColor];
     self.titleFont = [UIFont systemFontOfSize:17];

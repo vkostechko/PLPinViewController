@@ -113,6 +113,16 @@
     {
         self.keypadHeightConstraint.constant = 240;
     }
+    
+    id dotAppearance = [PLFormPinDot appearanceWhenContainedInInstancesOfClasses:@[[PLPinWindow class]]];    
+    [dotAppearance setUnselectedBorderColor:[UIColor clearColor]];
+    [dotAppearance setHighlightedBorderColor:[UIColor clearColor]];
+    [dotAppearance setSelectedBorderColor:appearance.pinHighlightedColor];
+    
+    [dotAppearance setUnselectedColor:appearance.pinFillColor];
+    [dotAppearance setHighlightedColor:appearance.pinFillColor];
+    [dotAppearance setSelectedColor:appearance.pinHighlightedColor];
+
 }
 
 - (void)didReceiveMemoryWarning {

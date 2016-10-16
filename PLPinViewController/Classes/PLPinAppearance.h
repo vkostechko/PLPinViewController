@@ -22,9 +22,7 @@
 
 @property (nonatomic, strong) UIColor *pinFillColor;
 @property (nonatomic, strong) UIColor *pinHighlightedColor;
-@property (nonatomic, strong) UIColor *pinStrokeColor;
-@property (nonatomic, assign) CGFloat pinStrokeWidth;
-@property (nonatomic, assign) CGSize pinSize;
+@property (nonatomic, assign) CGFloat pinSize;
 
 @property (nonatomic, strong) UIColor *backgroundColor;
 
