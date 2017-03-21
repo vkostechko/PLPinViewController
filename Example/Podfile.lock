@@ -3,7 +3,7 @@ PODS:
   - OCMock (3.3.1)
   - PLForm (0.1.7):
     - PureLayout
-  - PLPinViewController (0.1.1):
+  - PLPinViewController (0.1.3):
     - PLForm
     - PureLayout
   - PureLayout (3.0.2)
@@ -23,10 +23,10 @@ SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   PLForm: f5858d10405aedcf2fd58ca4f1534b66b1696770
-  PLPinViewController: 389f297fbccab62630fa4b065461b25befddb519
+  PLPinViewController: 516a081e7e250fa4edda86130a2cff70a6fff7c3
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   Reveal-SDK: 4d36a47c7091843eee525b72219e005b90bbac0b
 
 PODFILE CHECKSUM: 0408a073ca26e04e7ba84fc308e8577bff3de410
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.2.0

@@ -51,10 +51,6 @@
 -(void)popBack
 {
     [self performSegueWithIdentifier:@"unwindToCreatPin" sender:nil];
-    self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
-    self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
-    self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
-    self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -78,6 +74,10 @@
 -(void)setupAppearance
 {
     self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
+    self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
+    self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
+    self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;
