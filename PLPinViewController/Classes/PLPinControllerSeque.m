@@ -13,8 +13,7 @@
 
 - (instancetype)initWithIdentifier:(nullable NSString *)identifier source:(UIViewController *)source destination:(UIViewController *)destination
 {
-    if (self = [super initWithIdentifier:identifier source:source destination:destination])
-    {
+    if (self = [super initWithIdentifier:identifier source:source destination:destination]) {
         self.animated = (source.childViewControllers.count >0);
     }
     return self;    
@@ -22,8 +21,7 @@
 
 - (void)perform {
     PLPinViewController *sourceViewController = self.sourceViewController;
-    if ([sourceViewController isKindOfClass:[PLPinViewController class]])
-    {
+    if ([sourceViewController isKindOfClass:[PLPinViewController class]]) {
         [sourceViewController presentContainedViewController:self.destinationViewController animated:self.animated];
     }
 }

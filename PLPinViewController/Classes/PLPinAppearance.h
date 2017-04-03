@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UIFont *numberButtonFont;
 
 @property (nonatomic, strong) UIColor *deleteButtonColor;
+@property (nonatomic, strong) UIColor *touchIdButtonColor;
 
 @property (nonatomic, strong) UIColor *pinFillColor;
 @property (nonatomic, strong) UIColor *pinHighlightedColor;
@@ -31,5 +32,7 @@
 @property (nonatomic, strong) UIFont *messageFont;
 @property (nonatomic, strong) UIColor *messageColor;
 
+@property (nonatomic, assign) BOOL showTouchIDVerificationImmediately;
+@property (nonatomic, assign) BOOL hideTouchIDButtonIfFingersAreNotEnrolled;
 
 @end

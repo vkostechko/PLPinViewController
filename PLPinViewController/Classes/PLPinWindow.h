@@ -12,12 +12,11 @@
 
 @interface PLPinWindow : UIWindow
 
-+ (instancetype)defaultInstance;
-
 @property (nonatomic, strong) PLPinAppearance *pinAppearance;
 
--(void)showAnimated:(BOOL)animated;
--(void)hideAnimated:(BOOL)animated;
++ (instancetype)defaultInstance;
 
+- (void)showAnimated:(BOOL)animated;
+- (void)hideAnimated:(BOOL)animated;
 
 @end

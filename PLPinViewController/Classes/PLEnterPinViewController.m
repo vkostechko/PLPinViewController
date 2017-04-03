@@ -31,7 +31,10 @@
 
 @implementation PLEnterPinViewController
 
-- (void)viewDidLoad {
+#pragma mark - Lifecycle
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     // lets hook up the element
@@ -50,31 +53,55 @@
     [self setupAppearance];
 }
 
--(void)dealloc
-{
-    NSLog(@"dealloc pin controller");
-}
-
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.pinField becomeFirstResponder];
 }
 
--(void)viewWillDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.pinField resignFirstResponder];
 }
 
--(void)viewDidDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     pinElement.value = nil;
     [self.pinField updateWithElement:pinElement];
 }
 
--(void)setupAppearance
+- (void)dealloc
+{
+    NSLog(@"dealloc pin controller");
+}
+
+#pragma mark - Actions
+
+- (IBAction)logoutPressed:(id)sender
+{
+    [self.view endEditing:YES];
+    
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidLogout:)]) {
+        [vc.pinDelegate pinViewControllerDidLogout:vc];
+    }
+}
+
+- (IBAction)cancelPressed:(id)sender
+{
+    [self.view endEditing:YES];
+    
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidCancel:)]) {
+        [vc.pinDelegate pinViewControllerDidCancel:vc];
+    }
+}
+
+#pragma mark - Private
+
+- (void)setupAppearance
 {
     self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
     self.errorView.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
@@ -84,79 +111,48 @@
     self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
-- (void)formElementDidChangeValue:(PLFormElement *)formElement;
+- (void)formElementDidChangeValue:(PLFormElement *)formElement
 {
     PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-    if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:shouldAcceptPin:)])
-    {
-        if ([vc.pinDelegate pinViewController:vc shouldAcceptPin:pinElement.value])
-        {
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:shouldAcceptPin:)]) {
+        if ([vc.pinDelegate pinViewController:vc shouldAcceptPin:pinElement.value]) {
             [self correctPin];
-        }
-        else
-        {
+        } else {
             [self incorrectPin];
         }
     }
 }
 
--(void)correctPin
+- (void)correctPin
 {
     PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-    if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didEnterPin:)])
-    {
+    if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didEnterPin:)]) {
         [vc.pinDelegate pinViewController:vc didEnterPin:pinElement.value];
     }
 }
 
--(void)incorrectPin
+- (void)incorrectPin
 {
     // we need to display incorrect pin
     self.errorView.alpha = 0.0f;
     [[UIApplication sharedApplication]beginIgnoringInteractionEvents];
+    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.3f animations:^{
-        self.errorView.alpha = 1.0f;
+        weakSelf.errorView.alpha = 1.0f;
     } completion:^(BOOL finished) {
         [[UIApplication sharedApplication]endIgnoringInteractionEvents];
         
         pinElement.value = nil;
-        [self.pinField updateWithElement:pinElement];
-        [self.pinField becomeFirstResponder];
+        [weakSelf.pinField updateWithElement:pinElement];
+        [weakSelf.pinField becomeFirstResponder];
         
         [UIView animateWithDuration:0.3f
                               delay:1.0f
                             options:0
                          animations:^{
-            self.errorView.alpha = 0.0f;
-        } completion:^(BOOL finished) {
-        }];
-        
+            weakSelf.errorView.alpha = 0.0f;
+        } completion:^(BOOL finished) {}];
     }];
-    
-    return;
-
-}
-
-- (IBAction)logoutPressed:(id)sender {
-    
-    [self.view endEditing:YES];
-    
-    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidLogout:)])
-    {
-        [vc.pinDelegate pinViewControllerDidLogout:vc];
-    }
-}
-
-- (IBAction)cancelPressed:(id)sender {
-    
-    [self.view endEditing:YES];
-    
-    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidCancel:)])
-    {
-        [vc.pinDelegate pinViewControllerDidCancel:vc];
-    }
 }
 
 @end

@@ -10,9 +10,9 @@
 
 @implementation PLPinButton
 
-- (void) setHighlighted:(BOOL)highlighted {
+- (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
-    self.backgroundColor = (highlighted) ?  self.borderColor: [UIColor clearColor];
+    self.backgroundColor = (highlighted) ? self.borderColor : [UIColor clearColor];
 }
 
 @end

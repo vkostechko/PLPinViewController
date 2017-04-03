@@ -12,7 +12,8 @@
 
 @implementation PLSlideTransition
 
-- (id)init {
+- (id)init
+{
     self = [super init];
     if (self) {
         _operation = UINavigationControllerOperationPush;
@@ -20,12 +21,12 @@
     return self;
 }
 
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext;
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
 {
     return 0.35;
 }
 
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext;
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
 {
     UIViewController * fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController * toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
@@ -34,19 +35,16 @@
     [containerView addSubview:toViewController.view];
     CGFloat toStartX, fromEndX;
     
-    if (_operation == UINavigationControllerOperationPush)
-    {
+    if (_operation == UINavigationControllerOperationPush) {
         toStartX = screenFrame.size.width;
         fromEndX = -screenFrame.size.width;
-    } else
-    {
+    } else {
         toStartX = -screenFrame.size.width;
         fromEndX = screenFrame.size.width;
     }
     
     toViewController.view.frame = CGRectOffset(screenFrame, toStartX, 0);
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^
-     {
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
          toViewController.view.frame = screenFrame;
          fromViewController.view.frame = CGRectOffset(screenFrame, fromEndX, 0);
      } completion:^(BOOL finished) {
@@ -54,6 +52,5 @@
          [transitionContext completeTransition:YES];
      }];
 }
-
 
 @end

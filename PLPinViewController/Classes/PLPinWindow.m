@@ -41,15 +41,14 @@
     return sharedInstance;
 }
 
--(void)dealloc
+- (void)dealloc
 {
     NSLog(@"dealloc pin windows");
 }
 
--(void)showAnimated:(BOOL)animated
+- (void)showAnimated:(BOOL)animated
 {
-    if (animated)
-    {
+    if (animated) {
         self.alpha = 0.0;
         self.hidden = NO;
         [self.window makeKeyAndVisible];
@@ -58,20 +57,17 @@
         } completion:^(BOOL finished) {
             // do anything here?
         }];
-    }
-    else
-    {
+    } else {
         self.alpha = 1.0;
         self.hidden = NO;
         [self makeKeyAndVisible];
     }
 }
 
--(void)hideAnimated:(BOOL)animated
+- (void)hideAnimated:(BOOL)animated
 {
     // need to find the main window of the app delegate
-    if (animated)
-    {
+    if (animated) {
         [UIView animateWithDuration:0.4 animations:^{
             self.alpha = 0.0;
         } completion:^(BOOL finished) {
@@ -83,9 +79,7 @@
             PLPinViewController *vc = (PLPinViewController*)self.rootViewController;
             [vc presentContainedViewController:nil animated:NO];
         }];
-    }
-    else
-    {
+    } else {
         self.alpha = 0.0;
         self.hidden = YES;
         // get the original window.. (bit of an assumption)
@@ -95,6 +89,5 @@
         [vc presentContainedViewController:nil animated:NO];
     }
 }
-
 
 @end

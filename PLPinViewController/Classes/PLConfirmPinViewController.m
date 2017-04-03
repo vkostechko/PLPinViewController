@@ -28,7 +28,10 @@
 
 @implementation PLConfirmPinViewController
 
-- (void)viewDidLoad {
+#pragma mark - Lifecycle
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     // lets hook up the element
@@ -44,34 +47,30 @@
     self.pinField.textfield.inputView = [UIView new];
 
     [self setupAppearance];
-
-//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem yvp_backBarButtonItemWithTarget:self action:@selector(popBack)];
 }
 
--(void)popBack
-{
-    [self performSegueWithIdentifier:@"unwindToCreatPin" sender:nil];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-//    [self.pinField becomeFirstResponder];
-}
-
--(void)viewDidAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self.pinField becomeFirstResponder];
 }
 
--(void)viewWillDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.pinField resignFirstResponder];
 }
 
--(void)setupAppearance
+#pragma mark - Actions
+
+- (void)popBack
+{
+    [self performSegueWithIdentifier:@"unwindToCreatPin" sender:nil];
+}
+
+#pragma mark - Private
+
+- (void)setupAppearance
 {
     self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
     self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
@@ -82,19 +81,14 @@
 
 - (void)formElementDidChangeValue:(PLFormElement *)formElement;
 {
-    if ([pinElement.value isEqualToString:self.pin] )
-    {
+    if ([pinElement.value isEqualToString:self.pin]) {
         PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-        if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didSetPin:)])
-        {
+        if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didSetPin:)]) {
             [vc.pinDelegate pinViewController:vc didSetPin:pinElement.value];
         }
-    }
-    else
-    {
+    } else {
         [self performSegueWithIdentifier:@"unwindToCreatPin" sender:nil];
     }
 }
-
 
 @end

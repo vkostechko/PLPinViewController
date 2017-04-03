@@ -29,7 +29,10 @@
 
 @implementation PLCreatePinViewController
 
-- (void)viewDidLoad {
+#pragma mark - Lifecycle
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     // lets hook up the element
@@ -45,50 +48,19 @@
     [self setupAppearance];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.pinField becomeFirstResponder];
 }
 
--(void)viewDidAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self.pinField becomeFirstResponder];
 }
 
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-//    [self.pinField resignFirstResponder];
-}
-
--(void)setupAppearance
-{
-    self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
-    self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
-    self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
-    self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
-    self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    UIViewController *vc = [segue destinationViewController];
-    // set the view controllers user info (same as the ours)
-    SEL sel = NSSelectorFromString(@"pin");
-    if ([vc respondsToSelector:sel])
-    {
-        [vc setValue:pinElement.value forKey:@"pin"];
-    }
-}
-
-
-- (void)formElementDidChangeValue:(PLFormElement *)formElement;
-{
-    // we now need to advance to the next one
-    [self performSegueWithIdentifier:@"advance" sender:nil];
-}
+#pragma mark - Actions
 
 - (IBAction)unwindToCreatPin:(UIStoryboardSegue *)unwindSegue
 {
@@ -97,6 +69,35 @@
     self.errorLabel.alpha = 1;
     [self.pinField updateWithElement:pinElement];
     [self.pinField becomeFirstResponder];
+}
+
+- (void)formElementDidChangeValue:(PLFormElement *)formElement;
+{
+    // we now need to advance to the next one
+    [self performSegueWithIdentifier:@"advance" sender:nil];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UIViewController *vc = [segue destinationViewController];
+    // set the view controllers user info (same as the ours)
+    SEL sel = NSSelectorFromString(@"pin");
+    if ([vc respondsToSelector:sel]) {
+        [vc setValue:pinElement.value forKey:@"pin"];
+    }
+}
+
+#pragma mark - Private
+
+- (void)setupAppearance
+{
+    self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
+    self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
+    self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
+    self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
+    self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
 @end

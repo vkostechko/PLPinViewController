@@ -10,7 +10,7 @@
 
 @implementation PLChangePinViewController
 
--(void)correctPin
+- (void)correctPin
 {
     [self performSegueWithIdentifier:@"advance" sender:nil];
 }
